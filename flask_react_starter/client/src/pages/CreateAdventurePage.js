@@ -1,11 +1,12 @@
-import React, {useEffect} from 'react';
-import {connect, useDispatch, useSelector} from 'react-redux'
+import React, { useEffect } from 'react';
+import { connect, useDispatch, useSelector } from 'react-redux'
 import ContentTile from '../components/ContentTile'
-import {setUserAdventures} from '../store/adventures'
+import NewTile from '../components/NewTile'
+import { setUserAdventures } from '../store/adventures'
 
-function CreateAdventurePage(props) {
+function CreateAdventurePage() {
     const userId = useSelector(state => state.session.userId)
-
+    const adventures = useSelector(state => state.entities.adventures)
     const dispatch = useDispatch()
 
     useEffect(() => {
@@ -19,22 +20,36 @@ function CreateAdventurePage(props) {
 
     }, [dispatch, userId])
 
+
+    console.log(adventures)
+
+    const tiles = Object.values(adventures).map((ele, idx) => {
+        return (
+            <li key={idx}>
+            <ContentTile title={ele.title} contentId={ele.id} type={"adventure"} />
+            </li>
+        )
+    })
+
+
     return (
         <>
             <h1>Your Adventures</h1>
+            <ul>
             <ContentTile title={"bob"} />
-            <div>
-                <button>Create New Adventure</button>
-            </div>
+            {tiles}
+            <NewTile type="adventure" />
+            </ul>
         </>
     )
 }
 
-const mapStateToProps = (state, ownProps) => {
-    return {
-        userId: state.session.user_id,
-        notebooks: state.entities.adventures,
-    }
-};
+// const mapStateToProps = (state, ownProps) => {
+//     return {
+//         userId: state.session.user_id,
+//         adventures: state.entities.adventures,
+//     }
+// };
 
-export default connect(mapStateToProps)(CreateAdventurePage);
+// export default connect(mapStateToProps)(CreateAdventurePage);
+export default CreateAdventurePage;

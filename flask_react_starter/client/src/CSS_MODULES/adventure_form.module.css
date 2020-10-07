@@ -1,0 +1,20 @@
+.outermost_form_container{
+    display: flex;
+    flex-direction: column;
+}
+
+.form_title_text {
+    max-width: 200px;
+    outline: none;
+}
+
+.form_button {
+    max-width: 200px;
+    margin-top: 10px;
+}
+
+.form_description_textarea {
+    height: 50vh;
+    white-space: pre-wrap;
+    outline: none;
+}

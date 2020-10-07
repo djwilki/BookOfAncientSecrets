@@ -16,7 +16,7 @@ function AdventureForm(props) {
         e.preventDefault()
 
         let published = 0
-        if (checked == 'on') {
+        if (checked === 'on') {
             published = 1;
         }
         const res = await dispatch(addAdventure(title, description, published, userId));

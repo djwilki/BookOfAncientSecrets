@@ -9,8 +9,6 @@ import AdventureForm from './AdventureForm';
 
 function MainContent(props) {
 
-
-
     return (
         <>
             <nav>
@@ -43,4 +41,6 @@ function MainContent(props) {
     )
 }
 
-export default MainContent
+
+
+export default MainContent;

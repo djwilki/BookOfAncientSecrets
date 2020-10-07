@@ -9,9 +9,14 @@ def index():
   print("user route______")
   return { "users": [user.to_dict() for user in response]}
 
+@user_routes.route('/<int:user_id>')
+def get_user_info(user_id):
+  user = User.query.get(user_id)
+  return user.to_dict()
+
 
 @user_routes.route('/<int:userId>/adventures')
-def get_adventures():
+def get_adventures(userId):
   my_adventures = Adventure.query.filter(Adventure.ownerId == userId).all()
   my_adventures_dict = dict()
   for adventure in my_adventures:

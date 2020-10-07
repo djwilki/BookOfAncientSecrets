@@ -3,6 +3,7 @@ export const CREATE_USER = "signup/CREATE_USER";
 const LOGOUT_USER = 'session/LOGOUT_USER';
 const SET_USER = 'users/SET_USER';
 
+
 const setUser = (user) => {
     return {
         type: SET_USER,
@@ -41,6 +42,8 @@ export const signup = (username, email, password) => {
         }
     }
 };
+
+
 
 export const setUserInfo = (userId) => {
     return async dispatch => {

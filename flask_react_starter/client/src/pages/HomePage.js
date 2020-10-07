@@ -4,7 +4,7 @@ import { login, logout } from '../store/session'
 import { withRouter } from 'react-router-dom';
 
 
-function HomePage( {history}) {
+function HomePage({history}) {
     // const [errors, setErrors] = useState([]);
 
     // useEffect(() => {

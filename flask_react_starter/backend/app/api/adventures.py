@@ -1,4 +1,4 @@
-from flask import Blueprint, jsonify, request
+from flask import Blueprint, jsonify, request, make_response
 from app.models import db, Adventure
 from app.forms import AdventureForm
 from werkzeug.datastructures import MultiDict

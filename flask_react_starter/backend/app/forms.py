@@ -10,4 +10,3 @@ class LoginForm(FlaskForm):
 class AdventureForm(FlaskForm):
     title = StringField("Title", validators=[InputRequired("Please provide a valid title.")])
     description = StringField("Description", validators=[InputRequired("Please provide a valid description.")])
-    published = BooleanField("Published", validators=[InputRequired("Please provide publication status.")])

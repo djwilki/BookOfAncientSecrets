@@ -1,6 +1,6 @@
 import React from 'react'
 
-function ContentTile ({title}) {
+function ContentTile({tempkey, title, contentId, type }) {
 
     return (
         <>

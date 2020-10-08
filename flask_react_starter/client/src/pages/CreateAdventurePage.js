@@ -1,8 +1,10 @@
 import React, { useEffect } from 'react';
-import { connect, useDispatch, useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import ContentTile from '../components/ContentTile'
 import NewTile from '../components/NewTile'
 import { setUserAdventures } from '../store/adventures'
+import styles from '../CSS_MODULES/create_adventure.module.css'
+
 
 function CreateAdventurePage() {
     const userId = useSelector(state => state.session.userId)
@@ -25,22 +27,24 @@ function CreateAdventurePage() {
 
     const tiles = Object.values(adventures).map((ele, idx) => {
         return (
-            <li key={idx}>
-            <ContentTile title={ele.title} contentId={ele.id} type={"adventure"} />
+            <li  key={idx}>
+            <ContentTile title={ele.title} contentId={ele.id} path={"/adventure"} deletePath={"/adventures"}/>
             </li>
         )
     })
 
 
     return (
-        <>
-            <h1>Your Adventures</h1>
-            <ul>
-            <ContentTile title={"bob"} />
+        <div className={styles.page_div}>
+            <h1 className={styles.adventures_label}>Your Adventures</h1>
+            <hr></hr>
+            <h3>Available Adventures</h3>
+            <div>Your published adventures are available to other users for play!</div>
+            <ul className={styles.tile_list}>
             {tiles}
             <NewTile type="adventure" />
             </ul>
-        </>
+        </div>
     )
 }
 

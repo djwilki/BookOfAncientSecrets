@@ -33,6 +33,9 @@ function MainContent(props) {
                 <Route path="/adventure-form">
                     <AdventureForm />
                 </Route>
+                <Route path="/adventure-form/:id/view">
+                    <AdventureForm />
+                </Route>
                 <Route path="/">
                     <HomePage />
                 </Route>

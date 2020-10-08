@@ -2,7 +2,14 @@ import Cookies from 'js-cookie';
 
 const CREATE_ADVENTURE = "adventure/CREATE_ADVENTURE"
 const SET_ADVENTURES = 'adventure/SET_USER_ADVENTURES'
+const DELETE_ADVENTURE = "adventure/DELETE_ADVENTURE"
 
+const deleteAdventure = (adventureId) => {
+    return {
+        type: DELETE_ADVENTURE,
+        adventureId
+    }
+}
 
 const getUserAdventures = (adventure) => {
     return {
@@ -29,7 +36,7 @@ export const addAdventure = (title, description, published, ownerId) => {
                 'Content-Type': 'application/json',
                 'X-CSRFTOKEN': csrfToken
             },
-            body: JSON.stringify({title, description, published, ownerId, "csrf_token": csrfToken})
+            body: JSON.stringify({ title, description, published, ownerId, "csrf_token": csrfToken })
         });
         const data = await res.json();
         res.data = data;
@@ -55,14 +62,37 @@ export const setUserAdventures = (userId) => {
     }
 }
 
+export const removeAdventure = (adventureId) => {
+    const csrfToken = Cookies.get('XSRF-TOKEN');
+    const path =`api/adventures/${adventureId}`
+    return async dispatch => {
+        const res = await fetch(path, {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRFTOKEN': csrfToken
+            },
+        });
+
+        res.data = await res.json();
+        console.log(res.data)
+        if (res.ok) {
+            dispatch(deleteAdventure(adventureId));
+        }
+    }
+}
+
 
 export default function adventuresReducer(state = {}, action) {
     const newState = Object.assign({}, state);
-    switch(action.type) {
+    switch (action.type) {
         case CREATE_ADVENTURE:
-            return newState[action.adventure.id] =  action.adventure;
+            return newState[action.adventure.id] = action.adventure;
         case SET_ADVENTURES:
-            return newState.adventures= action.adventure;
+            return newState.adventures = action.adventure;
+        case DELETE_ADVENTURE:
+            delete newState[action.adventureId];
+            return newState;
         default:
             return state;
     }

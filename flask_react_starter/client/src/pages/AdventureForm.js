@@ -2,8 +2,10 @@ import React, {useState} from 'react'
 import styles from '../CSS_MODULES/adventure_form.module.css'
 import {useDispatch, useSelector} from 'react-redux'
 import {addAdventure} from '../store/adventures'
+import { withRouter } from 'react-router-dom';
 
-function AdventureForm(props) {
+
+function AdventureForm({history}) {
 
     const [title, setTitle] = useState("");
     const [description, setDescription] = useState("");
@@ -22,12 +24,13 @@ function AdventureForm(props) {
         const res = await dispatch(addAdventure(title, description, published, userId));
 
         if (res.ok) {
+            history.replace('/')
             return;
         }
     }
 
     return (
-        <>
+        <div className={styles.page_div}>
             <div className={styles.outermost_form_container}>
                 <h1>Create an Adventure</h1>
                 <hr></hr>
@@ -38,8 +41,8 @@ function AdventureForm(props) {
                 <div><input type="checkbox" onChange={(e)=>setChecked(e.target.value)}/><span>Publish</span></div>
                 <button className={styles.form_button} onClick={handleClick}>Add Adventure</button>
             </div>
-        </>
+        </div>
     )
 }
 
-export default AdventureForm
+export default withRouter(AdventureForm)

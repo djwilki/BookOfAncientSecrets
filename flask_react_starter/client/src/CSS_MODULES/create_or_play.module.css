@@ -1,6 +1,7 @@
 .choose_path_container {
     /* display: flex; */
     display: inline-block;
+    flex-wrap: wrap;
     flex-direction: column;
     margin: 20px;
 }

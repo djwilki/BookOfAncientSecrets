@@ -18,3 +18,8 @@
     white-space: pre-wrap;
     outline: none;
 }
+
+.page_div {
+    max-width: 1200px;
+    margin: auto;
+  }

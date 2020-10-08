@@ -1,16 +1,19 @@
 import React from 'react'
+import styles from '../CSS_MODULES/content_tile.module.css'
+import { NavLink } from 'react-router-dom';
 
-function NewTile({ type }) {
+function NewTile({  }) {
 
     return (
-        <>
-            <div>
+        <div className={styles.tile_container}>
+            <div className={styles.tile_title}>
                 <h1>New</h1>
-                <div>
-                    <button>Create New {type.charAt(0).toUpperCase() + type.slice(1)}</button>
+                <hr></hr>
+                <div className={styles.tile_nav}>
+                    <NavLink className={styles.tile_link} to={'/adventure-form'}> Create New </NavLink>
                 </div>
             </div>
-        </>
+        </div>
     )
 }
 

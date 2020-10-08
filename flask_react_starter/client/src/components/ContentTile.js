@@ -12,7 +12,7 @@ function ContentTile({ tempkey, title, contentId, path }) {
         e.preventDefault()
         console.log(path)
         if (path === "/adventure") {
-            const res = await dispatch(removeAdventure(contentId))
+             await dispatch(removeAdventure(contentId))
         }
     }
 

@@ -18,7 +18,7 @@ function HomePage({history}) {
         e.preventDefault();
         const res = await dispatch(login("Owen", "password"))
         if (res.ok) {
-            history.replace('/');
+            history.replace('/choose');
             return;
         }
 

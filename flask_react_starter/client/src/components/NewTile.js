@@ -2,7 +2,7 @@ import React from 'react'
 import styles from '../CSS_MODULES/content_tile.module.css'
 import { NavLink } from 'react-router-dom';
 
-function NewTile({  }) {
+function NewTile(props) {
 
     return (
         <div className={styles.tile_container}>

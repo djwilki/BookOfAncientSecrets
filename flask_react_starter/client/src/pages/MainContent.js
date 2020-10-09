@@ -7,6 +7,7 @@ import CreateAdventurePage from './CreateAdventurePage';
 import AdventureForm from './AdventureForm';
 import PageForm from './PageForm';
 import AdventureView from './AdventureView'
+import PageView from './PageView'
 
 
 function MainContent(props) {
@@ -41,9 +42,9 @@ function MainContent(props) {
                 <Route path="/page-form">
                     <PageForm />
                 </Route>
-                {/* <Route path="/page-view">
+                <Route path="/page-view">
                     <PageView/>
-                </Route> */}
+                </Route>
                 <Route path="/">
                     <HomePage />
                 </Route>

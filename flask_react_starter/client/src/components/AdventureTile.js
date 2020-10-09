@@ -17,7 +17,7 @@ function AdventureTile({ tempkey, title, contentId, path, history }) {
     const handleRedirect = async (e) => {
         e.preventDefault()
         await dispatch(setSelectedAdventureId(contentId))
-        history.replace('/adventure-view')
+        history.push('/adventure-view')
     }
 
     return (

@@ -5,6 +5,7 @@ import UserList from '../components/UsersList';
 import CreateOrPlayPage from './CreateOrPlayPage';
 import CreateAdventurePage from './CreateAdventurePage';
 import AdventureForm from './AdventureForm';
+import PageForm from './PageForm';
 import AdventureView from './AdventureView'
 
 
@@ -37,6 +38,12 @@ function MainContent(props) {
                 <Route path="/adventure-view">
                     <AdventureView/>
                 </Route>
+                <Route path="/page-form">
+                    <PageForm />
+                </Route>
+                {/* <Route path="/page-view">
+                    <PageView/>
+                </Route> */}
                 <Route path="/">
                     <HomePage />
                 </Route>

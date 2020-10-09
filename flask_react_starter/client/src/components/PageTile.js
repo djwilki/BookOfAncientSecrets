@@ -1,17 +1,24 @@
 import React from 'react'
 import { useDispatch } from 'react-redux';
 import styles from '../CSS_MODULES/content_tile.module.css'
-import { NavLink } from 'react-router-dom';
-import { removeAdventure } from '../store/adventures'
+import { NavLink, withRouter } from 'react-router-dom';
+import { removePage } from '../store/pages'
+import {setSelectedPageId} from '../store/session'
 
-function PageTile({ tempkey, title, contentId, path }) {
+function PageTile({ tempkey, title, contentId, path, history }) {
 
     const dispatch = useDispatch()
 
     const handleDelete = async (e) => {
         e.preventDefault()
         console.log(path)
-             await dispatch(removePage(contentId))
+        await dispatch(removePage(contentId))
+    }
+
+    const handleRedirect = async (e) => {
+        e.preventDefault()
+        await dispatch(setSelectedPageId(contentId))
+        history.push('/page-view')
     }
 
     return (
@@ -20,7 +27,7 @@ function PageTile({ tempkey, title, contentId, path }) {
                 <h1>{title}</h1>
                 <hr></hr>
                 <div className={styles.tile_nav}>
-                    <NavLink className={styles.tile_link} to={`${path}/${contentId}`}> View </NavLink>
+                    <button className={styles.tile_link} onClick={handleRedirect}>View</button>
                     <button className={styles.tile_button} onClick={handleDelete}>Delete</button>
                 </div>
             </div>
@@ -28,4 +35,4 @@ function PageTile({ tempkey, title, contentId, path }) {
     )
 }
 
-export default PageTile
+export default withRouter(PageTile);

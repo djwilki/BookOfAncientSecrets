@@ -3,12 +3,15 @@ import { useDispatch, useSelector } from 'react-redux'
 import AdventureTile from '../components/AdventureTile'
 import NewTile from '../components/NewTile'
 import { setUserAdventures } from '../store/adventures'
+import { setUserPages } from '../store/pages'
 import styles from '../CSS_MODULES/create_adventure.module.css'
 
 
 function CreateAdventurePage() {
     const userId = useSelector(state => state.session.userId)
     const adventures = useSelector(state => state.entities.adventures)
+
+
     const dispatch = useDispatch()
 
     useEffect(() => {
@@ -17,6 +20,10 @@ function CreateAdventurePage() {
         }
         getAdventures()
 
+        const getPages = async () => {
+            await dispatch(setUserPages(userId));
+        }
+        getPages()
 
 
 
@@ -27,7 +34,7 @@ function CreateAdventurePage() {
 
     const tiles = Object.values(adventures).map((ele, idx) => {
         return (
-            <li  key={idx}>
+            <li  key={ele.id}>
             <AdventureTile title={ele.title} contentId={ele.id} path={"/adventure"} deletePath={"/adventures"}/>
             </li>
         )

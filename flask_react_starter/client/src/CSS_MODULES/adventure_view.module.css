@@ -2,3 +2,11 @@
     max-width: 1200px;
     margin: auto;
   }
+
+  .tile_list {
+    list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+}

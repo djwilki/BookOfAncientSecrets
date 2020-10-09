@@ -1,11 +1,27 @@
 import Cookies from 'js-cookie';
 
 const DELETE_PAGE = "page/DELETE_PAGE"
+const CREATE_PAGE = "page/CREATE_PAGE"
+const SET_PAGES = "page/SET_PAGE"
 
 const deletePage = (pageId) => {
     return {
         type: DELETE_PAGE,
         pageId
+    }
+}
+
+const createPage = (page) => {
+    return {
+        type: CREATE_PAGE,
+        page
+    }
+}
+
+const getUserPages = (pages) => {
+    return {
+        type: SET_PAGES,
+        pages
     }
 }
 
@@ -29,6 +45,43 @@ export const addPage = (title, description, published, ownerId) => {
         return res;
     }
 }
+
+
+export const setUserPages = (userId) => {
+    console.log("setting")
+    return async dispatch => {
+        const res = await fetch(`api/users/${userId}/pages`);
+
+        res.data = await res.json();
+        console.log(res.data)
+        if (res.ok) {
+            dispatch(getUserPages(res.data));
+        }
+
+        return res;
+    }
+}
+
+export const removePage = (pageId) => {
+    const csrfToken = Cookies.get('XSRF-TOKEN');
+    const path =`api/pages/${pageId}`
+    return async dispatch => {
+        const res = await fetch(path, {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRFTOKEN': csrfToken
+            },
+        });
+
+        res.data = await res.json();
+        console.log(res.data)
+        if (res.ok) {
+            dispatch(deletePage(pageId));
+        }
+    }
+}
+
 
 export default function pagesReducer(state = {}, action) {
     const newState = Object.assign({}, state);

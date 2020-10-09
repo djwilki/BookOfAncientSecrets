@@ -23,11 +23,11 @@ def new():
 def edit(adventureId):
   data = request.json
   old_horizon = Adventure.query.get(adventureId)
-  if data['title']:
+  if 'title' in data:
       old_horizon.title = data['title']
-  if data['description']:
+  if 'description' in data:
       old_horizon.title = data['description']
-  if data['published']:
+  if 'published' in data:
       old_horizon.title = data['published']
   db.session.commit()
   return old_horizon.to_dict()

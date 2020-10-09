@@ -2,7 +2,9 @@ import Cookies from 'js-cookie';
 
 const SET_USER = 'session/SET_USER';
 const LOGOUT_USER = 'session/LOGOUT_USER';
-const SET_SELECTED_ADVENTURE_ID = 'session/'
+const SET_SELECTED_ADVENTURE_ID = 'session/SET_SELECTED_ADVENTURE_ID'
+const SET_SELECTED_PAGE_ID = 'session/SET_SELECTED_PAGE_ID'
+
 
 
 export const setUser = user => {
@@ -22,6 +24,13 @@ export const setSelectedAdventureId = (adventureId) => {
     return {
         type: SET_SELECTED_ADVENTURE_ID,
         adventureId
+    }
+}
+
+export const setSelectedPageId = (pageId) => {
+    return {
+        type: SET_SELECTED_PAGE_ID,
+        pageId
     }
 }
 
@@ -71,6 +80,7 @@ export const logout = () => {
 const initialSessionState = {
     userId: null,
     selectedAdventureId: null,
+    selectedPageId: null,
     // defaultNotebookId: null,
     // noteList: null,
     // activeNote: null
@@ -87,6 +97,9 @@ export default function sessionReducer(state = initialSessionState, action) {
             return {};
         case SET_SELECTED_ADVENTURE_ID:
             newState.selectedAdventureId = action.adventureId;
+            return newState
+        case SET_SELECTED_PAGE_ID:
+            newState.selectedPageId = action.pageId;
             return newState
         default:
             return state;

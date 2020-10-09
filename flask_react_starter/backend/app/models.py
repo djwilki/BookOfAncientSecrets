@@ -104,3 +104,18 @@ class Page(db.Model):
       "content": self.content,
       "adventureId": self.adventureId,
     }
+
+class Link(db.Model):
+  __tablename__ = "links"
+
+  id = db.Column(db.Integer, primary_key=True)
+  fromId = db.Column(db.Integer, nullable=False)
+  toId = db.Column(db.Integer, nullable=False)
+  text = db.Column(db.String(255), nullable=False)
+
+  def to_dict(self):
+    return {
+      "id": self.id,
+      "fromId": self.fromId,
+      "toId": self.toId,
+    }

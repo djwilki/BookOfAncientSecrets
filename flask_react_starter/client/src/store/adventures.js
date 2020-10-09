@@ -11,10 +11,10 @@ const deleteAdventure = (adventureId) => {
     }
 }
 
-const getUserAdventures = (adventure) => {
+const getUserAdventures = (adventures) => {
     return {
         type: SET_ADVENTURES,
-        adventure
+        adventures
     }
 }
 
@@ -87,9 +87,10 @@ export default function adventuresReducer(state = {}, action) {
     const newState = Object.assign({}, state);
     switch (action.type) {
         case CREATE_ADVENTURE:
-            return newState[action.adventure.id] = action.adventure;
+            return {...state, [action.adventure.id]: action.adventure};
         case SET_ADVENTURES:
-            return newState.adventures = action.adventure;
+            console.log(newState)
+            return action.adventures;
         case DELETE_ADVENTURE:
             delete newState[action.adventureId];
             return newState;

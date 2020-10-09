@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
-import ContentTile from '../components/ContentTile'
+import AdventureTile from '../components/AdventureTile'
 import NewTile from '../components/NewTile'
 import { setUserAdventures } from '../store/adventures'
 import styles from '../CSS_MODULES/create_adventure.module.css'
@@ -28,7 +28,7 @@ function CreateAdventurePage() {
     const tiles = Object.values(adventures).map((ele, idx) => {
         return (
             <li  key={idx}>
-            <ContentTile title={ele.title} contentId={ele.id} path={"/adventure"} deletePath={"/adventures"}/>
+            <AdventureTile title={ele.title} contentId={ele.id} path={"/adventure"} deletePath={"/adventures"}/>
             </li>
         )
     })

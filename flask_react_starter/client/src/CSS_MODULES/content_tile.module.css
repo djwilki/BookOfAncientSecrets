@@ -26,12 +26,12 @@
     background: none;
 	color: #bc1010;
 	border: none;
-	padding: 0;
 	cursor: pointer;
 	outline: inherit;
 }
 
 .tile_link {
+    box-sizing: border-box;
     text-transform: uppercase;
     font-family: "Roboto Condensed",Roboto,Helvetica,sans-serif;
     font-size: 13px;
@@ -40,6 +40,10 @@
     text-decoration: none;
     outline: 0;
     color: #1b9af0;
+    border: none;
+	cursor: pointer;
+    outline: inherit;
+    background: none;
 }
 
 .tile_nav {

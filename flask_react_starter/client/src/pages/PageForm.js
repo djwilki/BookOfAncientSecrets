@@ -44,9 +44,12 @@ function PageForm({history}) {
                 <hr></hr>
                 <h3>Page Title</h3>
                 <input onChange={(e)=>setTitle(e.target.value)} className={styles.form_title_text} type="text" placeholder="Enter a name" />
-                <h3>Description</h3>
+                <h3>Content</h3>
                 <textarea onChange={(e)=>setContent(e.target.value)} className={styles.form_description_textarea}/>
                 <div><input type="checkbox" onChange={(e)=>setChecked(e.target.value)}/><span>Publish</span></div>
+                <h3>Links</h3>
+                <select className={styles.form_title_text}>
+                </select>
                 <button className={styles.form_button} onClick={handleClick}>Add Page</button>
             </div>
         </div>

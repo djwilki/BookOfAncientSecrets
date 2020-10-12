@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import styles from '../CSS_MODULES/adventure_view.module.css'
 import PageTile from '../components/PageTile'
 
-function AdventureView (props) {
+function PageView (props) {
     console.log(props)
     const selectedPageId = useSelector(state => state.session.selectedPageId)
     const selectedPage = useSelector(state => state.entities.pages[selectedPageId])
@@ -22,4 +22,4 @@ function AdventureView (props) {
     )
 }
 
-export default AdventureView
+export default PageView

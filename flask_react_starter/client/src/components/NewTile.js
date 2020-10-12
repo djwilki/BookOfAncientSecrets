@@ -2,7 +2,7 @@ import React from 'react'
 import styles from '../CSS_MODULES/content_tile.module.css'
 import { NavLink } from 'react-router-dom';
 
-function NewTile(props) {
+function NewTile({type}) {
 
     return (
         <div className={styles.tile_container}>
@@ -10,7 +10,7 @@ function NewTile(props) {
                 <h1>New</h1>
                 <hr></hr>
                 <div className={styles.tile_nav}>
-                    <NavLink className={styles.tile_link} to={'/adventure-form'}> Create New </NavLink>
+                    <NavLink className={styles.tile_link} to={`/${type}-form`}> Create New </NavLink>
                 </div>
             </div>
         </div>

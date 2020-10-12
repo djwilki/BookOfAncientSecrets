@@ -21,6 +21,7 @@ function MainContent(props) {
                     <li><NavLink to="/choose" activeclass="active">Create or Play</NavLink></li>
                     <li><NavLink to="/create-adventure" activeclass="active">Create Adventure</NavLink></li>
                     <li><NavLink to="/adventure-form" activeclass="active">Adventure Form</NavLink></li>
+                    <li><NavLink to="/page-form" activeclass="active">Adventure Form</NavLink></li>
                 </ul>
             </nav>
             <Switch>

@@ -2,6 +2,7 @@ import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import styles from '../CSS_MODULES/adventure_view.module.css'
 import PageTile from '../components/PageTile'
+import NewTile from '../components/NewTile'
 
 function AdventureView (props) {
     console.log(props)
@@ -30,6 +31,7 @@ function AdventureView (props) {
             <hr></hr>
             <ul className={styles.tile_list}>
             {tiles}
+            <NewTile type="page" />
             </ul>
         </div>
     )

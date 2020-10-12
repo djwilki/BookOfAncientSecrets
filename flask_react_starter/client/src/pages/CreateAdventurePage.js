@@ -24,9 +24,6 @@ function CreateAdventurePage() {
             await dispatch(setUserPages(userId));
         }
         getPages()
-
-
-
     }, [dispatch, userId])
 
 
@@ -55,12 +52,5 @@ function CreateAdventurePage() {
     )
 }
 
-// const mapStateToProps = (state, ownProps) => {
-//     return {
-//         userId: state.session.user_id,
-//         adventures: state.entities.adventures,
-//     }
-// };
 
-// export default connect(mapStateToProps)(CreateAdventurePage);
 export default CreateAdventurePage;

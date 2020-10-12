@@ -3,6 +3,7 @@ import Cookies from 'js-cookie';
 const CREATE_ADVENTURE = "adventure/CREATE_ADVENTURE"
 const SET_ADVENTURES = 'adventure/SET_USER_ADVENTURES'
 const DELETE_ADVENTURE = "adventure/DELETE_ADVENTURE"
+const EDIT_ADVENTURE = "adventure/EDIT_ADVENTURE"
 
 const deleteAdventure = (adventureId) => {
     return {
@@ -22,6 +23,13 @@ const getUserAdventures = (adventures) => {
 const createAdventure = (adventure) => {
     return {
         type: CREATE_ADVENTURE,
+        adventure
+    }
+}
+
+const editAdventure = adventure => {
+    return {
+        type: EDIT_ADVENTURE,
         adventure
     }
 }
@@ -82,6 +90,26 @@ export const removeAdventure = (adventureId) => {
     }
 }
 
+export const updateAdventure = (selectedAdventureId, title, description, published) => {
+    const csrfToken = Cookies.get('XSRF-TOKEN');
+    const path = `/api/adventures/${selectedAdventureId}`;
+    return async dispatch => {
+        const res = await fetch(path, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRFTOKEN': csrfToken
+            },
+            body: JSON.stringify({ selectedAdventureId, title, description, published, "csrf_token": csrfToken })
+        });
+        const data = await res.json();
+        res.data = data;
+        if (res.ok) {
+            dispatch(editAdventure(res.data));
+        }
+        return res;
+    }
+}
 
 export default function adventuresReducer(state = {}, action) {
     const newState = Object.assign({}, state);
@@ -93,6 +121,9 @@ export default function adventuresReducer(state = {}, action) {
             return action.adventures;
         case DELETE_ADVENTURE:
             delete newState[action.adventureId];
+            return newState;
+        case EDIT_ADVENTURE:
+            newState[action.adventure.id] = action.adventure;
             return newState;
         default:
             return state;

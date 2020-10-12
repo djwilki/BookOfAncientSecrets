@@ -10,6 +10,7 @@ page_routes = Blueprint('pages', __name__)
 @page_routes.route('/', methods=["POST"])
 def new():
   data = MultiDict(mapping=request.json)
+  print(data)
   form = PageForm(data)
   if form.validate():
     new_scene = Page(title=data['title'], content=data['content'], adventureId=data['adventureId'], ownerId=data['ownerId'])
@@ -25,9 +26,11 @@ def edit(pageId):
   data = request.json
   old_scene = Page.query.get(pageId)
   if 'title' in data:
+    if data['title']:
       old_scene.title = data['title']
   if 'content' in data:
-      old_scene.title = data['content']
+    if data['content']:
+      old_scene.content = data['content']
   db.session.commit()
   return old_scene.to_dict()
 

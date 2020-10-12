@@ -14,11 +14,18 @@ function AdventureTile({ tempkey, title, contentId, path, history }) {
         await dispatch(removeAdventure(contentId))
     }
 
-    const handleRedirect = async (e) => {
+    const handleView = async (e) => {
         e.preventDefault()
         await dispatch(setSelectedAdventureId(contentId))
         history.push('/adventure-view')
     }
+
+    const handleEdit = async (e) => {
+        e.preventDefault()
+        await dispatch(setSelectedAdventureId(contentId))
+        history.push('/adventure-edit')
+    }
+
 
     return (
         <div className={styles.tile_container}>
@@ -27,7 +34,8 @@ function AdventureTile({ tempkey, title, contentId, path, history }) {
                 <hr></hr>
                 <div className={styles.tile_nav}>
                     {/* <NavLink className={styles.tile_link} to={`/adventure-view`}> View </NavLink> */}
-                    <button className={styles.tile_link} onClick={handleRedirect}>View</button>
+                    <button className={styles.tile_link} onClick={handleView}>View</button>
+                    <button className={styles.tile_link} onClick={handleEdit}>Edit</button>
                     <button className={styles.tile_button} onClick={handleDelete}>Delete</button>
                 </div>
             </div>

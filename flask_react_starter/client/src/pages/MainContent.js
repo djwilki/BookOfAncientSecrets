@@ -5,9 +5,11 @@ import UserList from '../components/UsersList';
 import CreateOrPlayPage from './CreateOrPlayPage';
 import CreateAdventurePage from './CreateAdventurePage';
 import AdventureForm from './AdventureForm';
-import PageForm from './PageForm';
 import AdventureView from './AdventureView'
+import AdventureEdit from './AdventureEdit'
+import PageForm from './PageForm';
 import PageView from './PageView'
+import PageEdit from './PageEdit'
 
 
 function MainContent(props) {
@@ -40,11 +42,17 @@ function MainContent(props) {
                 <Route path="/adventure-view">
                     <AdventureView/>
                 </Route>
+                <Route path="/adventure-edit">
+                    <AdventureEdit/>
+                </Route>
                 <Route path="/page-form">
                     <PageForm />
                 </Route>
                 <Route path="/page-view">
                     <PageView/>
+                </Route>
+                <Route path="/page-edit">
+                    <PageEdit/>
                 </Route>
                 <Route path="/">
                     <HomePage />

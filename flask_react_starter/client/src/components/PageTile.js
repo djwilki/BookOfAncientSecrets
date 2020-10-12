@@ -15,10 +15,16 @@ function PageTile({ tempkey, title, contentId, path, history }) {
         await dispatch(removePage(contentId))
     }
 
-    const handleRedirect = async (e) => {
+    const handleView = async (e) => {
         e.preventDefault()
         await dispatch(setSelectedPageId(contentId))
         history.push('/page-view')
+    }
+
+    const handleEdit = async (e) => {
+        e.preventDefault()
+        await dispatch(setSelectedPageId(contentId))
+        history.push('/page-edit')
     }
 
     return (
@@ -27,7 +33,8 @@ function PageTile({ tempkey, title, contentId, path, history }) {
                 <h1>{title}</h1>
                 <hr></hr>
                 <div className={styles.tile_nav}>
-                    <button className={styles.tile_link} onClick={handleRedirect}>View</button>
+                    <button className={styles.tile_link} onClick={handleView}>View</button>
+                    <button className={styles.tile_link} onClick={handleEdit}>Edit</button>
                     <button className={styles.tile_button} onClick={handleDelete}>Delete</button>
                 </div>
             </div>

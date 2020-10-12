@@ -1,0 +1,21 @@
+from flask import Blueprint, jsonify, request, make_response
+from app.models import db, Page, Link
+from app.forms import PageForm
+from werkzeug.datastructures import MultiDict
+
+link_routes = Blueprint('links', __name__)
+
+
+@link_routes.route('/', methods=["POST"])
+   def add_link():
+        data = MultiDict(mapping=request.json)
+        form = LinkForm(data)
+        if form.validate():
+            new_link = Link(fromId=data['fromId'], toId=data['toId'],
+                            text=data['text'], ownerId=data['ownerId'])
+            db.session.add(new_link)
+            db.session.commit()
+            return
+        else:
+            res = make_response({"errors": [form.errors[error][0] for error in form.errors]}, 401)
+            return res

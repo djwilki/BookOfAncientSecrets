@@ -5,6 +5,7 @@ import session from './session';
 import users from './users';
 import adventures from './adventures'
 import pages from './pages'
+import links from './links'
 // import ui from './ui';
 
 let storeEnhancer;
@@ -13,6 +14,7 @@ const entities = combineReducers({
     users,
     adventures,
     pages,
+    links,
 });
 
 const rootReducer = combineReducers({

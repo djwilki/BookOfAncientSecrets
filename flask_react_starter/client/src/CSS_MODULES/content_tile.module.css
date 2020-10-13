@@ -46,7 +46,26 @@
     background: none;
 }
 
+.tile_nav_link {
+    box-sizing: border-box;
+    text-transform: uppercase;
+    font-family: "Roboto Condensed",Roboto,Helvetica,sans-serif;
+    font-size: 13px;
+    font-weight: bold;
+    padding: 10px;
+    text-decoration: none;
+    outline: 0;
+    color: #1b9af0;
+    border: none;
+	cursor: pointer;
+    outline: inherit;
+    background: none;
+    display: flex;
+    justify-content: center;
+}
+
 .tile_nav {
     width: 100%;
     padding: 10px 0 10px;
+    min-height: 35px;
 }

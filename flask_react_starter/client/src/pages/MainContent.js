@@ -10,7 +10,7 @@ import AdventureEdit from './AdventureEdit'
 import PageForm from './PageForm';
 import PageView from './PageView'
 import PageEdit from './PageEdit'
-
+import DiceRoller from '../components/DiceRoller'
 
 function MainContent(props) {
 
@@ -58,6 +58,7 @@ function MainContent(props) {
                     <HomePage />
                 </Route>
             </Switch>
+            <DiceRoller/>
         </>
     )
 }

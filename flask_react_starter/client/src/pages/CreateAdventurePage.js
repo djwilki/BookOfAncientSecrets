@@ -4,6 +4,7 @@ import AdventureTile from '../components/AdventureTile'
 import NewTile from '../components/NewTile'
 import { setUserAdventures } from '../store/adventures'
 import { setUserPages } from '../store/pages'
+import {setUserLinks} from '../store/links'
 import styles from '../CSS_MODULES/create_adventure.module.css'
 
 
@@ -24,6 +25,12 @@ function CreateAdventurePage() {
             await dispatch(setUserPages(userId));
         }
         getPages()
+
+        const getLinks = async () => {
+            await dispatch(setUserLinks(userId));
+        }
+        getLinks()
+
     }, [dispatch, userId])
 
 

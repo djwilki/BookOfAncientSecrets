@@ -10,7 +10,7 @@ function AdventureEdit({ history }) {
     const [title, setTitle] = useState("");
     const [description, setDescription] = useState("");
     const [checked, setChecked] = useState(false);
-    const userId = useSelector(state => state.session.userId)
+    // const userId = useSelector(state => state.session.userId)
     const selectedAdventureId = useSelector(state => state.session.selectedAdventureId)
     // const links = useSelector(state => state.entities.links)
     const adventures = useSelector(state => state.entities.adventures)

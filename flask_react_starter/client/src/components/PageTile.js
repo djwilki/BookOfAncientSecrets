@@ -1,7 +1,7 @@
 import React from 'react'
 import { useDispatch } from 'react-redux';
 import styles from '../CSS_MODULES/content_tile.module.css'
-import { NavLink, withRouter } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import { removePage } from '../store/pages'
 import {setSelectedPageId} from '../store/session'
 

@@ -10,9 +10,9 @@ function PageForm({ history }) {
 
     const [title, setTitle] = useState("");
     const [content, setContent] = useState("");
-    const [checked, setChecked] = useState(false);
-    const [linkText, setLinkText] = useState("");
-    const [linkPage, setLinkPage] = useState(null);
+    // const [checked, setChecked] = useState(false);
+    // const [linkText, setLinkText] = useState("");
+    // const [linkPage, setLinkPage] = useState(null);
     const userId = useSelector(state => state.session.userId)
     const adventureId = useSelector(state => state.session.selectedAdventureId)
     // const links = useSelector(state => state.entities.links)

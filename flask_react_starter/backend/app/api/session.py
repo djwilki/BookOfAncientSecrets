@@ -22,7 +22,7 @@ def login():
             print(adventure.to_dict())
         if user and user.check_password(data['password']):
             login_user(user)
-            return {"user": { "userId": user.to_dict()['id'] } }
+            return {"user": { "userId": user.to_dict()['id'], "username":user.to_dict()['username'] } }
         else:
             res = make_response({ "errors": ["Invalid credentials"] }, 401)
             return res

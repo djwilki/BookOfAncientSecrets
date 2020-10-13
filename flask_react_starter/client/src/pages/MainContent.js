@@ -11,11 +11,14 @@ import PageForm from './PageForm';
 import PageView from './PageView'
 import PageEdit from './PageEdit'
 import DiceRoller from '../components/DiceRoller'
+import NavBar from '../components/NavBar'
+import '../CSS_MODULES/body.css'
 
 function MainContent(props) {
 
     return (
         <>
+            <NavBar />
             <nav>
                 <ul>
                     <li><NavLink to="/" activeclass="active">Home</NavLink></li>
@@ -40,25 +43,25 @@ function MainContent(props) {
                     <AdventureForm />
                 </Route>
                 <Route path="/adventure-view">
-                    <AdventureView/>
+                    <AdventureView />
                 </Route>
                 <Route path="/adventure-edit">
-                    <AdventureEdit/>
+                    <AdventureEdit />
                 </Route>
                 <Route path="/page-form">
                     <PageForm />
                 </Route>
                 <Route path="/page-view">
-                    <PageView/>
+                    <PageView />
                 </Route>
                 <Route path="/page-edit">
-                    <PageEdit/>
+                    <PageEdit />
                 </Route>
                 <Route path="/">
                     <HomePage />
                 </Route>
             </Switch>
-            <DiceRoller/>
+            <DiceRoller />
         </>
     )
 }

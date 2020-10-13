@@ -47,7 +47,7 @@ export const login = (email_or_username, password) => {
             body: JSON.stringify({ email_or_username, password, "csrf_token": csrfToken })
         });
         res.data = await res.json();
-        // console.log(res.data)
+        console.log(res.data)
         if (res.ok) {
             dispatch(setUser(res.data.user));
         }
@@ -92,6 +92,7 @@ export default function sessionReducer(state = initialSessionState, action) {
     switch (action.type) {
         case SET_USER:
             newState.userId = action.user.userId;
+            newState.username = action.user.username
             return newState;
         case LOGOUT_USER:
             return {};

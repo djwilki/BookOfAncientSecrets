@@ -1,0 +1,31 @@
+.logo_svg {
+    max-width: 25px;
+    stroke: red;
+    fill: red;
+    padding: 10px;
+}
+
+
+.logo_label {
+    font-weight: bold;
+    color: white
+}
+
+.logo{
+    display: flex;
+    width: 100%;
+    align-items: center;
+}
+
+.nav_bar{
+    background-color: black;
+    width: 100%;
+    height: 75px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.nav_container{
+    max-width: 1200px;
+}

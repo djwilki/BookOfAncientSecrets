@@ -42,10 +42,10 @@ function PageForm({ history }) {
         <div className={styles.page_div}>
             <div className={styles.outermost_form_container}>
                 <h1>Create a Page</h1>
-                <hr></hr>
-                <h3>Page Title</h3>
+                <hr className={styles.hr}></hr>
+                <h3>PAGE TITLE</h3>
                 <input onChange={(e) => setTitle(e.target.value)} className={styles.form_title_text} type="text" placeholder="Enter a name" />
-                <h3>Content</h3>
+                <h3>CONTENT</h3>
                 <textarea onChange={(e) => setContent(e.target.value)} className={styles.form_description_textarea} />
                 {/* <div><input type="checkbox" onChange={(e) => setChecked(e.target.value)} /><span>Publish</span></div> */}
                 {/* <h3>Links</h3>

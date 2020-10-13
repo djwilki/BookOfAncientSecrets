@@ -33,12 +33,12 @@ function AdventureForm({history}) {
         <div className={styles.page_div}>
             <div className={styles.outermost_form_container}>
                 <h1>Create an Adventure</h1>
-                <hr></hr>
-                <h3>Adventure Title</h3>
+                <hr className={styles.hr}></hr>
+                <h5 className={styles.field_title}>ADVENTURE TITLE</h5>
                 <input onChange={(e)=>setTitle(e.target.value)} className={styles.form_title_text} type="text" placeholder="Enter a name" />
-                <h3>Description</h3>
+                <h5 className={styles.field_title}>DESCRIPTION</h5>
                 <textarea onChange={(e)=>setDescription(e.target.value)} className={styles.form_description_textarea}/>
-                <div><input type="checkbox" onChange={(e)=>setChecked(e.target.value)}/><span>Publish</span></div>
+                <div className={styles.checkbox_container}><input type="checkbox" onChange={(e)=>setChecked(e.target.value)}/><span>Publish</span></div>
                 <button className={styles.form_button} onClick={handleClick}>Add Adventure</button>
             </div>
         </div>

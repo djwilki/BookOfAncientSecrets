@@ -22,14 +22,14 @@ function PageForm({ history }) {
 
     const handleClick = async (e) => {
         e.preventDefault()
-        console.log(title, content, adventureId, userId)
+        // console.log(title, content, adventureId, userId)
         const res = await dispatch(addPage(title, content, adventureId, userId));
 
         if (res.ok) {
             history.push('/adventure-view')
             return;
         }
-        console.log(res.errors)
+        // console.log(res.errors)
         return res.errors;
     }
 

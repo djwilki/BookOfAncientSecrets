@@ -56,12 +56,12 @@ export const addAdventure = (title, description, published, ownerId) => {
 }
 
 export const setUserAdventures = (userId) => {
-    console.log("setting")
+    // console.log("setting")
     return async dispatch => {
         const res = await fetch(`api/users/${userId}/adventures`);
 
         res.data = await res.json();
-        console.log(res.data)
+        // console.log(res.data)
         if (res.ok) {
             dispatch(getUserAdventures(res.data));
         }
@@ -83,7 +83,7 @@ export const removeAdventure = (adventureId) => {
         });
 
         res.data = await res.json();
-        console.log(res.data)
+        // console.log(res.data)
         if (res.ok) {
             dispatch(deleteAdventure(adventureId));
         }
@@ -117,7 +117,7 @@ export default function adventuresReducer(state = {}, action) {
         case CREATE_ADVENTURE:
             return {...state, [action.adventure.id]: action.adventure};
         case SET_ADVENTURES:
-            console.log(newState)
+            // console.log(newState)
             return action.adventures;
         case DELETE_ADVENTURE:
             delete newState[action.adventureId];

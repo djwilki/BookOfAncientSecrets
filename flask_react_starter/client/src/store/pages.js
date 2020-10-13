@@ -56,12 +56,12 @@ export const addPage = (title, content, adventureId, ownerId) => {
 
 
 export const setUserPages = (userId) => {
-    console.log("setting")
+    // console.log("setting")
     return async dispatch => {
         const res = await fetch(`api/users/${userId}/pages`);
 
         res.data = await res.json();
-        console.log(res.data)
+        // console.log(res.data)
         if (res.ok) {
             dispatch(getUserPages(res.data));
         }
@@ -83,7 +83,7 @@ export const removePage = (pageId) => {
         });
 
         res.data = await res.json();
-        console.log(res.data)
+        // console.log(res.data)
         if (res.ok) {
             dispatch(deletePage(pageId));
         }
@@ -118,7 +118,7 @@ export default function pagesReducer(state = {}, action) {
         case CREATE_PAGE:
             return {...state, [action.page.id]: action.page};
         case SET_PAGES:
-            console.log(newState)
+            // console.log(newState)
             return action.pages;
         case DELETE_PAGE:
             delete newState[action.pageId];

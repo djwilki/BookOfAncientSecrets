@@ -27,7 +27,7 @@ function CreateAdventurePage() {
     }, [dispatch, userId])
 
 
-    console.log(adventures)
+    // console.log(adventures)
 
     const tiles = Object.values(adventures).map((ele, idx) => {
         return (

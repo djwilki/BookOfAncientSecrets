@@ -10,7 +10,7 @@ function ContentTile({ tempkey, title, contentId, path }) {
 
     const handleDelete = async (e) => {
         e.preventDefault()
-        console.log(path)
+        // console.log(path)
         if (path === "/adventure") {
              await dispatch(removeAdventure(contentId))
         }

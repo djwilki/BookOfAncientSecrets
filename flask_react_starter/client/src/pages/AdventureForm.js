@@ -11,7 +11,7 @@ function AdventureForm({history}) {
     const [description, setDescription] = useState("");
     const [checked, setChecked] = useState(false);
     const userId = useSelector(state => state.session.userId)
-    console.log(userId)
+    // console.log(userId)
     const dispatch = useDispatch()
 
     const handleClick = async (e) => {

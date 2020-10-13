@@ -5,7 +5,7 @@ import PageTile from '../components/PageTile'
 import NewTile from '../components/NewTile'
 
 function AdventureView (props) {
-    console.log(props)
+    // console.log(props)
     const selectedAdventureId = useSelector(state => state.session.selectedAdventureId)
     const selectedAdventure = useSelector(state => state.entities.adventures[selectedAdventureId])
 

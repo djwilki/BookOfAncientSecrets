@@ -15,7 +15,7 @@ function AdventureEdit({ history }) {
     // const links = useSelector(state => state.entities.links)
     const adventures = useSelector(state => state.entities.adventures)
     const adventure = adventures[selectedAdventureId]
-    console.log(userId)
+    // console.log(userId)
     const dispatch = useDispatch()
 
     const handleClick = async (e) => {

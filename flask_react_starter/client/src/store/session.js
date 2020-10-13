@@ -47,7 +47,7 @@ export const login = (email_or_username, password) => {
             body: JSON.stringify({ email_or_username, password, "csrf_token": csrfToken })
         });
         res.data = await res.json();
-        console.log(res.data)
+        // console.log(res.data)
         if (res.ok) {
             dispatch(setUser(res.data.user));
         }
@@ -66,7 +66,7 @@ export const logout = () => {
                 "X-CSRFTOKEN": csrfToken
             }
         })
-        console.log(res.data)
+        // console.log(res.data)
         res.data = await res.json();
 
         if (res.ok) {

@@ -25,7 +25,7 @@ function PageEdit({ history }) {
 
     const handleClick = async (e) => {
         e.preventDefault()
-        console.log(title, content, adventureId, userId)
+        // console.log(title, content, adventureId, userId)
         const res = await dispatch(updatePage(selectedPageId, title, content));
 
         if (res.ok) {
@@ -33,7 +33,7 @@ function PageEdit({ history }) {
             history.push('/adventure-view')
             return;
         }
-        console.log(res.errors)
+        // console.log(res.errors)
         return res.errors;
     }
 

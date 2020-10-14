@@ -29,6 +29,7 @@ function MainContent(props) {
                     <li><NavLink to="/page-form" activeclass="active">Adventure Form</NavLink></li>
                 </ul>
             </nav>
+            <DiceRoller />
             <Switch>
                 <Route path="/users">
                     <UserList />
@@ -61,7 +62,6 @@ function MainContent(props) {
                     <HomePage />
                 </Route>
             </Switch>
-            <DiceRoller />
         </>
     )
 }

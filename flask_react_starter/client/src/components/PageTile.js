@@ -11,7 +11,6 @@ function PageTile({ tempkey, title, contentId, path, history }) {
 
     const handleDelete = async (e) => {
         e.preventDefault()
-        // console.log(path)
         await dispatch(removePage(contentId))
     }
 

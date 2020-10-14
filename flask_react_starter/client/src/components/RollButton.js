@@ -14,7 +14,7 @@ function RollButton({ max }) {
     }
 
     return (
-        <li className={styles.roll_li}>
+        <li key={max} className={styles.roll_li}>
             <span>{result}</span>
             <button className={styles.roll_button} onClick={handleClick} value={max}>
                 <i className={`fas fa-dice-d20 fa-3x`}>

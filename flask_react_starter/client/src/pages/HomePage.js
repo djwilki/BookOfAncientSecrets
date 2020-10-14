@@ -5,11 +5,6 @@ import { withRouter } from 'react-router-dom';
 
 
 function HomePage({history}) {
-    // const [errors, setErrors] = useState([]);
-
-    // useEffect(() => {
-    //     setErrors([]);
-    // }, [emailOrUsername, password]);
 
 
     const dispatch = useDispatch()
@@ -22,7 +17,6 @@ function HomePage({history}) {
             return;
         }
 
-        // setErrors(res.data.errors);
     }
 
     const handleDemoLogout = async (e) => {
@@ -36,9 +30,7 @@ function HomePage({history}) {
 
     return (
         <>
-            <h1>My Home Page</h1>
-            <button type="button" onClick={handleDemoLogin}>Log in as Demo User</button>
-            <button type="button" onClick={handleDemoLogout}>Logout Demo User</button>
+            <h1>PLEASE LOG IN</h1>
         </>
     )
 }

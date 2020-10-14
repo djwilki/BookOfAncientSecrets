@@ -26,9 +26,9 @@ function DiceRoller(props) {
 
                 {dice.map(ele => {
                     return (
-                        <>
-                            <RollButton max={ele} />
-                        </>
+
+                            <RollButton key={ele} max={ele} />
+
                     )
                 }
                 )}

@@ -2,12 +2,20 @@ import Cookies from 'js-cookie';
 
 const CREATE_ADVENTURE = "adventure/CREATE_ADVENTURE"
 const SET_ADVENTURES = 'adventure/SET_USER_ADVENTURES'
+const DELETE_ADVENTURE = "adventure/DELETE_ADVENTURE"
+const EDIT_ADVENTURE = "adventure/EDIT_ADVENTURE"
 
+const deleteAdventure = (adventureId) => {
+    return {
+        type: DELETE_ADVENTURE,
+        adventureId
+    }
+}
 
-const getUserAdventures = (adventure) => {
+const getUserAdventures = (adventures) => {
     return {
         type: SET_ADVENTURES,
-        adventure
+        adventures
     }
 }
 
@@ -15,6 +23,13 @@ const getUserAdventures = (adventure) => {
 const createAdventure = (adventure) => {
     return {
         type: CREATE_ADVENTURE,
+        adventure
+    }
+}
+
+const editAdventure = adventure => {
+    return {
+        type: EDIT_ADVENTURE,
         adventure
     }
 }
@@ -29,7 +44,7 @@ export const addAdventure = (title, description, published, ownerId) => {
                 'Content-Type': 'application/json',
                 'X-CSRFTOKEN': csrfToken
             },
-            body: JSON.stringify({title, description, published, ownerId, "csrf_token": csrfToken})
+            body: JSON.stringify({ title, description, published, ownerId, "csrf_token": csrfToken })
         });
         const data = await res.json();
         res.data = data;
@@ -41,12 +56,12 @@ export const addAdventure = (title, description, published, ownerId) => {
 }
 
 export const setUserAdventures = (userId) => {
-    console.log("setting")
+    // console.log("setting")
     return async dispatch => {
         const res = await fetch(`api/users/${userId}/adventures`);
 
         res.data = await res.json();
-        console.log(res.data)
+        // console.log(res.data)
         if (res.ok) {
             dispatch(getUserAdventures(res.data));
         }
@@ -55,14 +70,61 @@ export const setUserAdventures = (userId) => {
     }
 }
 
+export const removeAdventure = (adventureId) => {
+    const csrfToken = Cookies.get('XSRF-TOKEN');
+    const path =`api/adventures/${adventureId}`
+    return async dispatch => {
+        const res = await fetch(path, {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRFTOKEN': csrfToken
+            },
+        });
+
+        res.data = await res.json();
+        // console.log(res.data)
+        if (res.ok) {
+            dispatch(deleteAdventure(adventureId));
+        }
+    }
+}
+
+export const updateAdventure = (selectedAdventureId, title, description, published) => {
+    const csrfToken = Cookies.get('XSRF-TOKEN');
+    const path = `/api/adventures/${selectedAdventureId}`;
+    return async dispatch => {
+        const res = await fetch(path, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRFTOKEN': csrfToken
+            },
+            body: JSON.stringify({ selectedAdventureId, title, description, published, "csrf_token": csrfToken })
+        });
+        const data = await res.json();
+        res.data = data;
+        if (res.ok) {
+            dispatch(editAdventure(res.data));
+        }
+        return res;
+    }
+}
 
 export default function adventuresReducer(state = {}, action) {
     const newState = Object.assign({}, state);
-    switch(action.type) {
+    switch (action.type) {
         case CREATE_ADVENTURE:
-            return newState[action.adventure.id] =  action.adventure;
+            return {...state, [action.adventure.id]: action.adventure};
         case SET_ADVENTURES:
-            return newState.adventures= action.adventure;
+            // console.log(newState)
+            return action.adventures;
+        case DELETE_ADVENTURE:
+            delete newState[action.adventureId];
+            return newState;
+        case EDIT_ADVENTURE:
+            newState[action.adventure.id] = action.adventure;
+            return newState;
         default:
             return state;
     }

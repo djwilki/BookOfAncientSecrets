@@ -19,7 +19,7 @@ function CreateOrPlayPage(props) {
                 <div className={styles.choose_path_container}>
                     <img alt="" className={styles.choose_image} src="https://immarpalomera.files.wordpress.com/2010/12/dungeon-delve1.jpg" />
                     <NavLink className="Navlink" to="/characters" activeclass="active">Select Your Character</NavLink>
-                    <NavLink className="Navlink" to="/adventures" activeclass="active">Start an Adventure</NavLink>
+                    <NavLink className="Navlink" to="/adventure-play" activeclass="active">Start an Adventure</NavLink>
                 </div>
             </div>
         </>

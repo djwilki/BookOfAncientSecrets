@@ -15,6 +15,8 @@ class User(db.Model, UserMixin):
   hashed_password = db.Column(db.String(255), nullable=False, unique=True)
   characters = db.relationship("Character")
   adventures = db.relationship("Adventure")
+  pages = db.relationship("Page")
+  links = db.relationship("Link")
 
   @property
   def password(self):
@@ -31,7 +33,7 @@ class User(db.Model, UserMixin):
     return {
       "id": self.id,
       "username": self.username,
-      "email": self.email
+      "email": self.email,
     }
 
 
@@ -96,6 +98,7 @@ class Page(db.Model):
   title = db.Column(db.String(80), nullable=False)
   content = db.Column(db.String, nullable=False)
   adventureId = db.Column(db.Integer, db.ForeignKey('adventures.id'), nullable=False)
+  ownerId = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
 
   def to_dict(self):
     return {
@@ -103,4 +106,24 @@ class Page(db.Model):
       "title": self.title,
       "content": self.content,
       "adventureId": self.adventureId,
+      "ownerId": self.ownerId,
+    }
+
+class Link(db.Model):
+  __tablename__ = "links"
+
+  id = db.Column(db.Integer, primary_key=True)
+  fromId = db.Column(db.Integer, nullable=False)
+  toId = db.Column(db.Integer, nullable=False)
+  text = db.Column(db.String(255), nullable=False)
+  ownerId = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
+
+
+  def to_dict(self):
+    return {
+      "id": self.id,
+      "fromId": self.fromId,
+      "toId": self.toId,
+      "text": self.text,
+      "ownerId": self.ownerId
     }

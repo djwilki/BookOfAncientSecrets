@@ -1,14 +1,13 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
-import AdventureTile from '../components/AdventureTile'
-import NewTile from '../components/NewTile'
+import PlayTile from '../components/PlayTile'
 import { setUserAdventures } from '../store/adventures'
 import { setUserPages } from '../store/pages'
 import {setUserLinks} from '../store/links'
 import styles from '../CSS_MODULES/create_adventure.module.css'
 
 
-function CreateAdventurePage() {
+function AdventurePlay(props) {
     const userId = useSelector(state => state.session.userId)
     const adventures = useSelector(state => state.entities.adventures)
 
@@ -39,7 +38,7 @@ function CreateAdventurePage() {
     const tiles = Object.values(adventures).map((ele, idx) => {
         return (
             <li  key={ele.id}>
-            <AdventureTile title={ele.title} contentId={ele.id} path={"/adventure"} deletePath={"/adventures"}/>
+            <PlayTile title={ele.title} contentId={ele.id} path={"/adventure"} deletePath={"/adventures"}/>
             </li>
         )
     })
@@ -49,15 +48,14 @@ function CreateAdventurePage() {
         <div className={styles.page_div}>
             <h1 className={styles.adventures_label}>Your Adventures</h1>
             <hr></hr>
-            <h3>Available Adventures</h3>
-            <div>Your published adventures are available to other users for play!</div>
+            <h3>Playable Adventures</h3>
+            <div>Published adventures are available to you for play!</div>
             <ul className={styles.tile_list}>
             {tiles}
-            <NewTile type="adventure" />
             </ul>
         </div>
     )
 }
 
 
-export default CreateAdventurePage;
+export default AdventurePlay;

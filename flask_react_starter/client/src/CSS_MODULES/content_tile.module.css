@@ -1,0 +1,71 @@
+.tile_title {
+    color: #242527;
+    font-size: 13px;
+    text-align: center;
+    width: 348px;
+    display: inline-block;
+    max-width: 100%;
+    font-family: Roboto,Helvetica,sans-serif;
+    border: 1px lightgrey solid;
+    padding: 0 10px 0;
+    margin-bottom: 50px;
+
+}
+
+.tile_container {
+    margin: 15px
+}
+
+.tile_button {
+    text-transform: uppercase;
+    font-family: "Roboto Condensed",Roboto,Helvetica,sans-serif;
+    font-size: 13px;
+    font-weight: bold;
+    padding: 10px;
+    outline: 0;
+    background: none;
+	color: #bc1010;
+	border: none;
+	cursor: pointer;
+	outline: inherit;
+}
+
+.tile_link {
+    box-sizing: border-box;
+    text-transform: uppercase;
+    font-family: "Roboto Condensed",Roboto,Helvetica,sans-serif;
+    font-size: 13px;
+    font-weight: bold;
+    padding: 10px;
+    text-decoration: none;
+    outline: 0;
+    color: #1b9af0;
+    border: none;
+	cursor: pointer;
+    outline: inherit;
+    background: none;
+}
+
+.tile_nav_link {
+    box-sizing: border-box;
+    text-transform: uppercase;
+    font-family: "Roboto Condensed",Roboto,Helvetica,sans-serif;
+    font-size: 13px;
+    font-weight: bold;
+    padding: 10px;
+    text-decoration: none;
+    outline: 0;
+    color: #1b9af0;
+    border: none;
+	cursor: pointer;
+    outline: inherit;
+    background: none;
+    display: flex;
+    justify-content: center;
+}
+
+.tile_nav {
+    width: 100%;
+    padding: 10px 0 10px;
+    min-height: 35px;
+}

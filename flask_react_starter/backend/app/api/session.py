@@ -18,9 +18,11 @@ def login():
     print(form.data)
     if form.validate():
         user = User.query.filter(or_(User.username == data['email_or_username'], User.email == data['email_or_username'])).first()
+        for adventure in user.adventures:
+            print(adventure.to_dict())
         if user and user.check_password(data['password']):
             login_user(user)
-            return {"user": { "userId": user.to_dict()['id'] } }
+            return {"user": { "userId": user.to_dict()['id'], "username":user.to_dict()['username'] } }
         else:
             res = make_response({ "errors": ["Invalid credentials"] }, 401)
             return res

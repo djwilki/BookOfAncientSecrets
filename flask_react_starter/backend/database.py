@@ -11,7 +11,7 @@ with app.app_context():
   owen = User(username = 'Owen', email = 'owen@demo.io', password = "password")
   blay = Character(name = 'Blay', strength = 8, dexterity = 14, constitution = 14, intelligence = 12, wisdom = 16, charisma = 12, armor_class = 14, max_hitpoints = 10, features = "", actions = "", ownerId = 1)
   path = Adventure(title = 'The Oasis', description = 'A cautionary tale', published = False, ownerId = 1)
-  start = Page(title = 'Downturn Alley', content = 'These streets are rough. Make a Perception Check DC (10)', adventureId = 1)
+  start = Page(title = 'Downturn Alley', content = 'These streets are rough. Make a Perception Check DC (10)', adventureId = 1, ownerId = 1)
 
   db.session.add(owen)
   db.session.add(blay)

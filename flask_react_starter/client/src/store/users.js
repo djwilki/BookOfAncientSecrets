@@ -37,7 +37,7 @@ export const signup = (username, email, password) => {
             dispatch(createUser(data));
             return res;
         } else {
-            console.error('Bad response');
+            // console.error('Bad response');
             return res;
         }
     }

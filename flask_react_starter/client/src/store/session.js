@@ -2,6 +2,9 @@ import Cookies from 'js-cookie';
 
 const SET_USER = 'session/SET_USER';
 const LOGOUT_USER = 'session/LOGOUT_USER';
+const SET_SELECTED_ADVENTURE_ID = 'session/SET_SELECTED_ADVENTURE_ID'
+const SET_SELECTED_PAGE_ID = 'session/SET_SELECTED_PAGE_ID'
+
 
 
 export const setUser = user => {
@@ -14,6 +17,20 @@ export const setUser = user => {
 export const logoutUser = () => {
     return {
         type: LOGOUT_USER
+    }
+}
+
+export const setSelectedAdventureId = (adventureId) => {
+    return {
+        type: SET_SELECTED_ADVENTURE_ID,
+        adventureId
+    }
+}
+
+export const setSelectedPageId = (pageId) => {
+    return {
+        type: SET_SELECTED_PAGE_ID,
+        pageId
     }
 }
 
@@ -49,7 +66,7 @@ export const logout = () => {
                 "X-CSRFTOKEN": csrfToken
             }
         })
-        console.log(res.data)
+        // console.log(res.data)
         res.data = await res.json();
 
         if (res.ok) {
@@ -59,9 +76,11 @@ export const logout = () => {
     }
 }
 
+
 const initialSessionState = {
     userId: null,
-    // selectedNotebookId: null,
+    selectedAdventureId: null,
+    selectedPageId: null,
     // defaultNotebookId: null,
     // noteList: null,
     // activeNote: null
@@ -73,9 +92,16 @@ export default function sessionReducer(state = initialSessionState, action) {
     switch (action.type) {
         case SET_USER:
             newState.userId = action.user.userId;
+            newState.username = action.user.username
             return newState;
         case LOGOUT_USER:
             return {};
+        case SET_SELECTED_ADVENTURE_ID:
+            newState.selectedAdventureId = action.adventureId;
+            return newState
+        case SET_SELECTED_PAGE_ID:
+            newState.selectedPageId = action.pageId;
+            return newState
         default:
             return state;
     }

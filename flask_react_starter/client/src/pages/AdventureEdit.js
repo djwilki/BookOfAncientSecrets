@@ -43,7 +43,7 @@ function AdventureEdit({ history }) {
                 <h3>Description</h3>
                 <textarea onChange={(e) => setDescription(e.target.value)} className={styles.form_description_textarea} defaultValue={adventure.description}/>
                 <div><input type="checkbox" onChange={(e) => setChecked(e.target.value)} /><span>Publish</span></div>
-                <button className={styles.form_button} onClick={handleClick}>Add Adventure</button>
+                <button className={styles.form_button} onClick={handleClick}>Save Adventure</button>
             </div>
         </div>
     )

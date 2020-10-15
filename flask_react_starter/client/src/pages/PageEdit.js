@@ -37,7 +37,7 @@ function PageEdit({ history }) {
 
     const handleLink = async (e) => {
         e.preventDefault()
-        console.log(page.id, linkPage, linkText, userId)
+        // console.log(page.id, linkPage, linkText, userId)
         const res = await (dispatch(addLink(Number(page.id), Number(linkPage), linkText, userId)))
         if (res.ok) {
             return;

@@ -4,8 +4,9 @@
     flex-wrap: wrap;
     flex-direction: column;
     margin: 20px;
-    position: relative;
-    top: 7vh;
+    /* position: relative;
+    top: 7vh; */
+    height: fit-content;
 }
 
 .choose_image {

@@ -24,8 +24,9 @@ function MainContent(props) {
 
     return (
         <>
-            <NavBar />
-            {/* <nav>
+            <div className={styles.main_container}>
+                <NavBar />
+                {/* <nav>
                 <ul>
                     <li><NavLink to="/" activeclass="active">Home</NavLink></li>
                     <li><NavLink to="/users" activeclass="active">Users</NavLink></li>
@@ -36,53 +37,54 @@ function MainContent(props) {
                 </ul>
             </nav> */}
 
-            <div className={styles.dice_room}>
-                <div className={styles.left_spacer}></div>
-                {userId ?
-                    <Switch>
-                        <Route path="/users">
-                            <UserList />
-                        </Route>
-                        <Route path="/choose">
-                            <CreateOrPlayPage />
-                        </Route>
-                        <Route path="/create-adventure">
-                            <CreateAdventurePage />
-                        </Route>
-                        <Route path="/adventure-form">
-                            <AdventureForm />
-                        </Route>
-                        <Route path="/adventure-view">
-                            <AdventureView />
-                        </Route>
-                        <Route path="/adventure-edit">
-                            <AdventureEdit />
-                        </Route>
-                        <Route path="/adventure-play">
-                            <AdventurePlay />
-                        </Route>
-                        <Route path="/page-form">
-                            <PageForm />
-                        </Route>
-                        <Route path="/page-view">
-                            <PageView />
-                        </Route>
-                        <Route path="/page-edit">
-                            <PageEdit />
-                        </Route>
-                        <Route path="/">
-                            <HomePage />
-                        </Route>
-                    </Switch>
-                    :
-                    <Switch>
-                        <Route path="/">
-                            <HomePage />
-                        </Route>
-                    </Switch>}
-                <DiceRoller />
+                <div className={styles.dice_room}>
+                    <div className={styles.left_spacer}></div>
+                    {userId ?
+                        <Switch>
+                            <Route path="/users">
+                                <UserList />
+                            </Route>
+                            <Route path="/choose">
+                                <CreateOrPlayPage />
+                            </Route>
+                            <Route path="/create-adventure">
+                                <CreateAdventurePage />
+                            </Route>
+                            <Route path="/adventure-form">
+                                <AdventureForm />
+                            </Route>
+                            <Route path="/adventure-view">
+                                <AdventureView />
+                            </Route>
+                            <Route path="/adventure-edit">
+                                <AdventureEdit />
+                            </Route>
+                            <Route path="/adventure-play">
+                                <AdventurePlay />
+                            </Route>
+                            <Route path="/page-form">
+                                <PageForm />
+                            </Route>
+                            <Route path="/page-view">
+                                <PageView />
+                            </Route>
+                            <Route path="/page-edit">
+                                <PageEdit />
+                            </Route>
+                            <Route path="/">
+                                <HomePage />
+                            </Route>
+                        </Switch>
+                        :
+                        <Switch>
+                            <Route path="/">
+                                <HomePage />
+                            </Route>
+                        </Switch>}
+                    <DiceRoller />
+                </div>
             </div>
-            <Footer/>
+            <Footer />
         </>
     )
 }

@@ -1,6 +1,9 @@
 .outermost_form_container{
     display: flex;
     flex-direction: column;
+    margin-bottom: 100px;
+    max-width: 1200px;
+    width: 90vw;
 }
 
 .form_title_text {
@@ -50,7 +53,7 @@
 
 .page_div {
     max-width: 1200px;
-margin: auto
+/* margin: auto */
   }
 
   .hr {

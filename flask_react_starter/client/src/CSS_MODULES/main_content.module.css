@@ -3,9 +3,14 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: flex-start;
+    height: fit-content;
 }
 
 .left_spacer {
     width: 190px;
     height: 100%;
+}
+
+.main_container {
+    min-height: 89vh;
 }

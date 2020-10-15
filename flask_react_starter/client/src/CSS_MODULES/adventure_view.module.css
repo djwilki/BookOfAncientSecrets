@@ -1,6 +1,7 @@
 .page_div {
     max-width: 1200px;
-    margin: auto;
+    /* margin: auto; */
+    width: 90vw;
   }
 
   .tile_list {

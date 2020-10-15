@@ -100,6 +100,7 @@ class Page(db.Model):
   adventureId = db.Column(db.Integer, db.ForeignKey('adventures.id'), nullable=False)
   ownerId = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
 
+
   def to_dict(self):
     return {
       "id": self.id,
@@ -113,10 +114,13 @@ class Link(db.Model):
   __tablename__ = "links"
 
   id = db.Column(db.Integer, primary_key=True)
-  fromId = db.Column(db.Integer, nullable=False)
-  toId = db.Column(db.Integer, nullable=False)
+  # fromId = db.Column(db.Integer, nullable=False)
+  # toId = db.Column(db.Integer, nullable=False)
   text = db.Column(db.String(255), nullable=False)
   ownerId = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
+
+  toId = db.Column(db.Integer, db.ForeignKey('pages.id'), nullable=False)
+  fromId = db.Column(db.Integer, db.ForeignKey('pages.id'), nullable=False)
 
 
   def to_dict(self):

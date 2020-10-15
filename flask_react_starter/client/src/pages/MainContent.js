@@ -14,7 +14,9 @@ import PageEdit from './PageEdit'
 import DiceRoller from '../components/DiceRoller'
 import NavBar from '../components/NavBar'
 import '../CSS_MODULES/body.css'
+import styles from '../CSS_MODULES/main_content.module.css'
 import { useSelector } from 'react-redux';
+import Footer from '../components/Footer'
 
 function MainContent(props) {
 
@@ -33,51 +35,54 @@ function MainContent(props) {
                     <li><NavLink to="/page-form" activeclass="active">Adventure Form</NavLink></li>
                 </ul>
             </nav> */}
-            <DiceRoller />
 
-            {userId ?
-                <Switch>
-                    <Route path="/users">
-                        <UserList />
-                    </Route>
-                    <Route path="/choose">
-                        <CreateOrPlayPage />
-                    </Route>
-                    <Route path="/create-adventure">
-                        <CreateAdventurePage />
-                    </Route>
-                    <Route path="/adventure-form">
-                        <AdventureForm />
-                    </Route>
-                    <Route path="/adventure-view">
-                        <AdventureView />
-                    </Route>
-                    <Route path="/adventure-edit">
-                        <AdventureEdit />
-                    </Route>
-                    <Route path="/adventure-play">
-                        <AdventurePlay />
-                    </Route>
-                    <Route path="/page-form">
-                        <PageForm />
-                    </Route>
-                    <Route path="/page-view">
-                        <PageView />
-                    </Route>
-                    <Route path="/page-edit">
-                        <PageEdit />
-                    </Route>
-                    <Route path="/">
-                        <HomePage />
-                    </Route>
-                </Switch>
-                :
-                <Switch>
-                    <Route path="/">
-                        <HomePage />
-                    </Route>
-                </Switch>}
-
+            <div className={styles.dice_room}>
+                <div className={styles.left_spacer}></div>
+                {userId ?
+                    <Switch>
+                        <Route path="/users">
+                            <UserList />
+                        </Route>
+                        <Route path="/choose">
+                            <CreateOrPlayPage />
+                        </Route>
+                        <Route path="/create-adventure">
+                            <CreateAdventurePage />
+                        </Route>
+                        <Route path="/adventure-form">
+                            <AdventureForm />
+                        </Route>
+                        <Route path="/adventure-view">
+                            <AdventureView />
+                        </Route>
+                        <Route path="/adventure-edit">
+                            <AdventureEdit />
+                        </Route>
+                        <Route path="/adventure-play">
+                            <AdventurePlay />
+                        </Route>
+                        <Route path="/page-form">
+                            <PageForm />
+                        </Route>
+                        <Route path="/page-view">
+                            <PageView />
+                        </Route>
+                        <Route path="/page-edit">
+                            <PageEdit />
+                        </Route>
+                        <Route path="/">
+                            <HomePage />
+                        </Route>
+                    </Switch>
+                    :
+                    <Switch>
+                        <Route path="/">
+                            <HomePage />
+                        </Route>
+                    </Switch>}
+                <DiceRoller />
+            </div>
+            <Footer/>
         </>
     )
 }

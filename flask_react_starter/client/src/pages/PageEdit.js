@@ -60,10 +60,10 @@ function PageEdit({ history }) {
                 <textarea onChange={(e) => setContent(e.target.value)} className={styles.form_description_textarea} defaultValue={page.content} />
                 <div><input type="checkbox" onChange={(e) => setChecked(e.target.value)} /><span>Publish</span></div>
                 <h3>Links</h3>
-                <ul>
+                <ul className={styles.link_list}>
                 {Object.values(links).map(ele => {
                     if (ele.fromId === selectedPageId){
-                        return <li key={ele.id}>{ele.text}<button value={ele.id} onClick={deleteLink}>Remove</button></li>
+                        return <li className={styles.link_item} key={ele.id}>{ele.text}<button value={ele.id} onClick={deleteLink}>Remove</button></li>
                     }
                 })}
                 </ul>

@@ -5,13 +5,13 @@ import styles from '../CSS_MODULES/dice_roller.module.css'
 
 function DiceRoller(props) {
 
-    const dice = [20, 12, 10, 8, 6, 4, 3, 2]
+    const dice = [20, 12, 10, 8, 6, 4]
 
     const [hidden, setHidden] = useState(1);
 
 
-    const hideTray = () =>{
-        if (hidden){
+    const hideTray = () => {
+        if (hidden) {
             setHidden(0)
         } else {
             setHidden(1)
@@ -21,13 +21,15 @@ function DiceRoller(props) {
 
     return (
         <div className={styles.tray_container}>
-            <button className={styles.tray_button } onClick={hideTray}>{"<"}</button>
-            {hidden ? '' : <ul className={styles.dice_tray }>
+            <div>
+                <button className={styles.tray_button} onClick={hideTray}>DICE TRAY</button>
+            </div>
+            {hidden ? '' : <ul className={styles.dice_tray}>
 
                 {dice.map(ele => {
                     return (
 
-                            <RollButton key={ele} max={ele} />
+                        <RollButton key={ele} max={ele} />
 
                     )
                 }

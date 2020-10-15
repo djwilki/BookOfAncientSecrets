@@ -1,4 +1,5 @@
 from flask import Blueprint, jsonify, request, make_response
+from sqlalchemy import or_
 from app.models import db, Page, Link
 from app.forms import PageForm
 from werkzeug.datastructures import MultiDict
@@ -37,6 +38,9 @@ def edit(pageId):
 
 @page_routes.route('/<int:pageId>', methods=["DELETE"])
 def remove(pageId):
+  old_links = Link.query.filter(or_(Link.toId == pageId, Link.fromId == pageId))
+  for link in old_links:
+    db.session.delete(link)
   old_scene = Page.query.get(pageId)
   db.session.delete(old_scene)
   db.session.commit()

@@ -8,6 +8,7 @@ function AdventureView (props) {
     // console.log(props)
     const selectedAdventureId = useSelector(state => state.session.selectedAdventureId)
     const selectedAdventure = useSelector(state => state.entities.adventures[selectedAdventureId])
+    const userId = useSelector(state => state.session.userId)
 
     // const adventures = useSelector(state => state.entities.adventures)
     const pages = useSelector(state=> state.entities.pages)
@@ -18,7 +19,7 @@ function AdventureView (props) {
     const tiles = Object.values(adventure_pages).map((ele, idx) => {
         return (
             <li  key={ele.id}>
-            <PageTile title={ele.title} contentId={ele.id} path={"/page"} deletePath={"/pages"}/>
+            <PageTile title={ele.title} userId={userId} contentId={ele.id} path={"/page"} deletePath={"/pages"}/>
             </li>
         )
     })

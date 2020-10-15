@@ -15,6 +15,8 @@
     background-color: rgba(255,255,255,0.75);
     box-shadow: inset 0 0 4px 0 rgba(139,178,199,0.48);
     border-radius: 0;
+    margin-top: 8px;
+    margin-bottom: 8px;
 }
 
 .form_button {
@@ -48,7 +50,7 @@
 
 .page_div {
     max-width: 1200px;
-    margin: auto;
+margin: auto
   }
 
   .hr {
@@ -62,4 +64,12 @@
 
   .checkbox_container {
     padding: 15px 5px 10px;
+  }
+
+  .link_list{
+
+  }
+
+  .link_item {
+
   }

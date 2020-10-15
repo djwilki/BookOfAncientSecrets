@@ -24,3 +24,7 @@
     font-family: "Roboto Condensed",Roboto,Helvetica,sans-serif;
     font-weight: bold;
 }
+
+.fas.fa-dice-d20.fa-3x:before {
+    width: 10px !important;
+}

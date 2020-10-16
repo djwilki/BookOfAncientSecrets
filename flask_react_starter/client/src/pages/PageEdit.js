@@ -61,8 +61,11 @@ function PageEdit({ history }) {
                     {/* <div><input type="checkbox" onChange={(e) => setChecked(e.target.value)} /><span>Publish</span></div> */}
                     <h3>Links</h3>
                     <ul className={styles.link_list}>
-                        {Object.values(links).filter(ele => ele.fromId === selectedPageId).map(ele => {
-                            return <li className={styles.link_item} key={ele.id}><span className={styles.link_item_link}>{ele.text}</span><button className={styles.link_button_delete} value={ele.id} onClick={deleteLink}> Remove </button></li>
+                        {Object.values(links).filter((ele2) => ele2.fromId === selectedPageId).map((ele, idx) => {
+                            return (<li key={idx.toString()} className={styles.link_item}>
+                                <span className={styles.link_item_link}>{ele.text}</span>
+                                <button className={styles.link_button_delete} value={ele.id} onClick={deleteLink}> Remove </button>
+                            </li>)
                         })}
                     </ul>
                     <select className={styles.form_title_text} defaultValue={'DEFAULT'} onChange={(e) => setLinkPage(e.target.value)}>

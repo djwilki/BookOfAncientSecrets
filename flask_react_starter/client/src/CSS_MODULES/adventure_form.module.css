@@ -70,9 +70,17 @@
   }
 
   .link_list{
-
+    list-style: none;
   }
 
-  .link_item {
+  .link_item_link {
+    padding-right: 10px;
+  }
 
+  .link_button_delete {
+    color: red;
+    background-color: transparent;
+    outline: none;
+    border: 2px solid red ;
+    border-radius: 3px;
   }

@@ -1,5 +1,5 @@
-import React from 'react';
-import { Switch, Route, NavLink } from 'react-router-dom';
+import React, {useEffect} from 'react';
+import { Switch, Route } from 'react-router-dom';
 import HomePage from '../pages/HomePage'
 import UserList from '../components/UsersList';
 import CreateOrPlayPage from './CreateOrPlayPage';
@@ -15,12 +15,40 @@ import DiceRoller from '../components/DiceRoller'
 import NavBar from '../components/NavBar'
 import '../CSS_MODULES/body.css'
 import styles from '../CSS_MODULES/main_content.module.css'
-import { useSelector } from 'react-redux';
 import Footer from '../components/Footer'
+import { useDispatch, useSelector } from 'react-redux';
+import { setUserAdventures } from '../store/adventures'
+import { setUserPages } from '../store/pages'
+import { setUserLinks } from '../store/links'
 
 function MainContent(props) {
 
+
+
     const userId = useSelector(state => state.session.userId)
+
+    const dispatch = useDispatch()
+
+    useEffect(() => {
+        if (userId) {
+            const getAdventures = async () => {
+                await dispatch(setUserAdventures(userId));
+            }
+            getAdventures()
+
+            const getPages = async () => {
+                await dispatch(setUserPages(userId));
+            }
+            getPages()
+
+            const getLinks = async () => {
+                await dispatch(setUserLinks(userId));
+            }
+            getLinks()
+        }
+    }, [dispatch, userId])
+
+
 
     return (
         <>

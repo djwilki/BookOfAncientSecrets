@@ -29,7 +29,7 @@ function NavBar({history}) {
 
     const handleDemoLogout = async (e) => {
         e.preventDefault();
-        const res = await dispatch(logout())
+        await dispatch(logout())
         history.replace('/');
     }
 

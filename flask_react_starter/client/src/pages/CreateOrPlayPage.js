@@ -2,10 +2,7 @@ import React from 'react'
 import styles from '../CSS_MODULES/create_or_play.module.css'
 import { NavLink } from 'react-router-dom';
 
-
 function CreateOrPlayPage(props) {
-
-
 
     return (
         <>

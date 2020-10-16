@@ -14,7 +14,7 @@ function PageForm({ history }) {
     // const [linkText, setLinkText] = useState("");
     // const [linkPage, setLinkPage] = useState(null);
     const userId = useSelector(state => state.session.userId)
-    const adventureId = useSelector(state => state.session.selectedAdventureId)
+    const adventureId = useSelector(state => state.ui.selectedAdventureId)
     // const links = useSelector(state => state.entities.links)
     // const pages = useSelector(state => state.entities.pages)
 

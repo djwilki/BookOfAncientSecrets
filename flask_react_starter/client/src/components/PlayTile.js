@@ -2,8 +2,7 @@ import React from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import styles from '../CSS_MODULES/content_tile.module.css'
 import { withRouter } from 'react-router-dom';
-import { removeAdventure } from '../store/adventures'
-import { setSelectedAdventureId, setSelectedPageId } from '../store/session'
+import { setSelectedAdventureId, setSelectedPageId } from '../store/ui'
 
 function PlayTile({ tempkey, title, contentId, path, history }) {
 

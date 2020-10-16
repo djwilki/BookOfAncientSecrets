@@ -11,7 +11,7 @@ function AdventureEdit({ history }) {
     const [description, setDescription] = useState("");
     const [checked, setChecked] = useState(false);
     // const userId = useSelector(state => state.session.userId)
-    const selectedAdventureId = useSelector(state => state.session.selectedAdventureId)
+    const selectedAdventureId = useSelector(state => state.ui.selectedAdventureId)
     // const links = useSelector(state => state.entities.links)
     const adventures = useSelector(state => state.entities.adventures)
     const adventure = adventures[selectedAdventureId]

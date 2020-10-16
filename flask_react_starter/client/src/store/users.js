@@ -65,6 +65,8 @@ export default function usersReducer(state = {}, action) {
         case CREATE_USER:
             return action.user;
         case LOGOUT_USER:
+            localStorage.removeItem('selectedAdventure')
+            localStorage.removeItem('selectedPage')
             return {};
         case SET_USER:
             return { [action.user.id]: action.user };

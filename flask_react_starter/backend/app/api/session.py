@@ -10,16 +10,15 @@ from flask_wtf.csrf import generate_csrf
 
 session = Blueprint("session", __name__)
 
-@session.route("/login", methods=["POST"])
+@session.route("/login", methods=["GET", "POST"])
 def login():
+
     data = MultiDict(mapping=request.json)
-    print(data)
+    # print(data)
     form = LoginForm(data)
-    print(form.data)
+    # print(form.data)
     if form.validate():
         user = User.query.filter(or_(User.username == data['email_or_username'], User.email == data['email_or_username'])).first()
-        for adventure in user.adventures:
-            print(adventure.to_dict())
         if user and user.check_password(data['password']):
             login_user(user)
             return {"user": { "userId": user.to_dict()['id'], "username":user.to_dict()['username'] } }
@@ -42,3 +41,17 @@ def csrf():
     res = make_response("Setting csrf token")
     res.set_cookie("XSRF-TOKEN", generate_csrf())
     return res
+
+@session.route('/load', methods=["GET"])
+def load():
+    print(current_user)
+    if current_user.is_authenticated:
+        return {"user": { "userId": current_user.to_dict()['id'], "username":current_user.to_dict()['username'] } }
+    else:
+        return {"user": {"userId": "", "username":""}}
+
+@login_manager.user_loader
+def load_user(user_id):
+    if user_id is not None:
+        return User.query.get(user_id)
+    return None

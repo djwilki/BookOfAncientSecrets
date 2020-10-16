@@ -11,7 +11,7 @@ page_routes = Blueprint('pages', __name__)
 @page_routes.route('/', methods=["POST"])
 def new():
   data = MultiDict(mapping=request.json)
-  print(data)
+  # print(data)
   form = PageForm(data)
   if form.validate():
     new_scene = Page(title=data['title'], content=data['content'], adventureId=data['adventureId'], ownerId=data['ownerId'])

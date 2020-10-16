@@ -2,8 +2,7 @@ import Cookies from 'js-cookie';
 
 const SET_USER = 'session/SET_USER';
 const LOGOUT_USER = 'session/LOGOUT_USER';
-const SET_SELECTED_ADVENTURE_ID = 'session/SET_SELECTED_ADVENTURE_ID'
-const SET_SELECTED_PAGE_ID = 'session/SET_SELECTED_PAGE_ID'
+
 
 
 
@@ -20,19 +19,7 @@ export const logoutUser = () => {
     }
 }
 
-export const setSelectedAdventureId = (adventureId) => {
-    return {
-        type: SET_SELECTED_ADVENTURE_ID,
-        adventureId
-    }
-}
 
-export const setSelectedPageId = (pageId) => {
-    return {
-        type: SET_SELECTED_PAGE_ID,
-        pageId
-    }
-}
 
 
 export const login = (email_or_username, password) => {
@@ -55,7 +42,6 @@ export const login = (email_or_username, password) => {
     }
 };
 
-window.login = login;
 
 export const logout = () => {
     const csrfToken = Cookies.get("XSRF-TOKEN");
@@ -76,11 +62,22 @@ export const logout = () => {
     }
 }
 
+export const loadSession = () => {
+    return async dispatch => {
+        const res = await fetch('/api/session/load');
+        res.data = await res.json();
+        if (res.ok) {
+            dispatch(setUser(res.data.user));
+        }
+        return res
+    }
+
+}
+
 
 const initialSessionState = {
     userId: null,
-    selectedAdventureId: null,
-    selectedPageId: null,
+    username: null,
     // defaultNotebookId: null,
     // noteList: null,
     // activeNote: null
@@ -96,12 +93,6 @@ export default function sessionReducer(state = initialSessionState, action) {
             return newState;
         case LOGOUT_USER:
             return {};
-        case SET_SELECTED_ADVENTURE_ID:
-            newState.selectedAdventureId = action.adventureId;
-            return newState
-        case SET_SELECTED_PAGE_ID:
-            newState.selectedPageId = action.pageId;
-            return newState
         default:
             return state;
     }

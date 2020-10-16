@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import styles from '../CSS_MODULES/content_tile.module.css'
 import { withRouter } from 'react-router-dom';
 import { removeAdventure } from '../store/adventures'
-import {setSelectedAdventureId} from '../store/session'
+import {setSelectedAdventureId} from '../store/ui'
 
 function AdventureTile({ tempkey, title, contentId, path, history }) {
 

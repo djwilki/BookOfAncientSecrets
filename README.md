@@ -12,7 +12,7 @@
 * Create new adventures
 * Create paths between pages in adventures
 * Create and update adventures
-* Play published adventures
+* Play through adventures
 
 ### Current Adventures Include:
 * An excerpt from Treasure Island

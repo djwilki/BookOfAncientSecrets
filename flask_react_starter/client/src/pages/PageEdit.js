@@ -62,23 +62,24 @@ function PageEdit({ history }) {
                     <h3>Links</h3>
                     <ul className={styles.link_list}>
                         {Object.values(links).filter((ele2) => ele2.fromId === selectedPageId).map((ele, idx) => {
-                            return (<li key={idx.toString()} className={styles.link_item}>
+                            return (<li key={ele.id.toString()} className={styles.link_item}>
                                 <span className={styles.link_item_link}>{ele.text}</span>
                                 <button className={styles.link_button_delete} value={ele.id} onClick={deleteLink}> Remove </button>
                             </li>)
                         })}
                     </ul>
                     <select className={styles.form_title_text} defaultValue={'DEFAULT'} onChange={(e) => setLinkPage(e.target.value)}>
-                        <option disabled value={'DEFAULT'}> -- select a page -- </option>
+                        <option key={"0"} disabled value={'DEFAULT'}> -- select a page -- </option>
                         {Object.values(pages).map(page => {
                             if (page.adventureId === adventureId &&
                                 page.id !== selectedPageId &&
                                 !Object.values(links).filter(ele => ele.fromId === selectedPageId).map(ele => {
                                     return ele.toId
                                 }).includes(page.id)) {
+                                    console.log(page.title)
                                 return <option key={page.id} value={Number(page.id)}>{page.title}</option>
                             }
-                            return <></>;
+                            return "";
                         })}
                     </select>
                     <input type="text" placeholder="Enter Link Text" onChange={(e) => setLinkText(e.target.value)} className={styles.form_title_text} />

@@ -27,7 +27,7 @@
 
 ### Navigating Code:
 * All code is written using the Redux framework.
-* This code uses react conditional rendering to prevent users from manipulating the url to access pages or story elements out of order, or from retracing their footsteps
+* This code uses the ui slice of state and React conditional rendering to prevent users from manipulating the url to access pages or story elements out of order, or from retracing their footsteps
 ```
 const selectedPageId = useSelector(state => state.ui.selectedPageId)
 const selectedPage = useSelector(state => state.entities.pages[selectedPageId])
@@ -57,6 +57,28 @@ const nextPage = async (e) => {
         </div>
     )
 ```
+
+* The ui slice of state also uses localStorage to persist user state between hard refreshes, allowing the user to return to pages with their open content intact
+
+```
+export default function uiReducer(state = initialSessionState, action) {
+    const newState = Object.assign({}, state);
+    switch (action.type) {
+        case SET_SELECTED_ADVENTURE_ID:
+            localStorage.setItem('selectedAdventure', action.adventureId)
+            newState.selectedAdventureId = action.adventureId;
+            return newState
+        case SET_SELECTED_PAGE_ID:
+            localStorage.setItem('selectedPage', action.pageId)
+            newState.selectedPageId = action.pageId;
+            return newState
+        default:
+            return state;
+    }
+};
+```
+
+
 
 
 

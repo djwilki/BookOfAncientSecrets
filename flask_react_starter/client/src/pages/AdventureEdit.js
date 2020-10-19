@@ -11,7 +11,7 @@ function AdventureEdit({ history }) {
     const [description, setDescription] = useState("");
     const [checked, setChecked] = useState(false);
     // const userId = useSelector(state => state.session.userId)
-    const selectedAdventureId = useSelector(state => state.session.selectedAdventureId)
+    const selectedAdventureId = useSelector(state => state.ui.selectedAdventureId)
     // const links = useSelector(state => state.entities.links)
     const adventures = useSelector(state => state.entities.adventures)
     const adventure = adventures[selectedAdventureId]
@@ -33,6 +33,11 @@ function AdventureEdit({ history }) {
         }
     }
 
+    const handleCancel = (e) => {
+        e.preventDefault()
+        history.replace('create-adventure');
+    }
+
     return (
         <div className={styles.page_div}>
             <div className={styles.outermost_form_container}>
@@ -43,7 +48,8 @@ function AdventureEdit({ history }) {
                 <h3>Description</h3>
                 <textarea onChange={(e) => setDescription(e.target.value)} className={styles.form_description_textarea} defaultValue={adventure.description}/>
                 <div><input type="checkbox" onChange={(e) => setChecked(e.target.value)} /><span>Publish</span></div>
-                <button className={styles.form_button} onClick={handleClick}>Add Adventure</button>
+                <button className={styles.form_button} onClick={handleClick}>Save Adventure</button>
+                <button className={styles.form_button} onClick={handleCancel}>Cancel</button>
             </div>
         </div>
     )

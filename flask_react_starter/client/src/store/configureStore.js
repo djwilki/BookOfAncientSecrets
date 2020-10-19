@@ -6,7 +6,7 @@ import users from './users';
 import adventures from './adventures'
 import pages from './pages'
 import links from './links'
-// import ui from './ui';
+import ui from './ui';
 
 let storeEnhancer;
 
@@ -20,7 +20,7 @@ const entities = combineReducers({
 const rootReducer = combineReducers({
     session,
     entities,
-    // ui
+    ui
 });
 
 if (process.env.NODE_ENV !== 'production') {

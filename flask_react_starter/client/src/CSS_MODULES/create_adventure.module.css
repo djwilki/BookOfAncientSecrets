@@ -23,5 +23,6 @@
 
 .page_div {
   max-width: 1200px;
-  margin: auto;
+  width: 80vw;
+  /* margin: auto; */
 }

@@ -3,15 +3,20 @@ import { useDispatch } from 'react-redux';
 import styles from '../CSS_MODULES/content_tile.module.css'
 import { withRouter } from 'react-router-dom';
 import { removePage } from '../store/pages'
-import {setSelectedPageId} from '../store/session'
+import {setSelectedPageId} from '../store/ui'
+import {setUserLinks} from '../store/links'
 
-function PageTile({ tempkey, title, contentId, path, history }) {
+function PageTile({ tempkey, title, contentId, path, history, userId }) {
 
     const dispatch = useDispatch()
 
     const handleDelete = async (e) => {
         e.preventDefault()
         await dispatch(removePage(contentId))
+        const getLinks = async () => {
+            await dispatch(setUserLinks(userId));
+        }
+        getLinks()
     }
 
     const handleView = async (e) => {

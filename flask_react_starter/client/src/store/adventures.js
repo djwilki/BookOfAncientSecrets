@@ -111,6 +111,8 @@ export const updateAdventure = (selectedAdventureId, title, description, publish
     }
 }
 
+
+
 export default function adventuresReducer(state = {}, action) {
     const newState = Object.assign({}, state);
     switch (action.type) {

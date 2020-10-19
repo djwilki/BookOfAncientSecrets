@@ -1,6 +1,7 @@
 .page_div {
     max-width: 1200px;
-    margin: auto;
+    /* margin: auto; */
+    width: 90vw;
   }
 
   .tile_list {
@@ -9,4 +10,24 @@
   padding: 0;
   display: flex;
   flex-wrap: wrap;
+}
+
+.link_list{
+  list-style: none;
+}
+
+.tile_link {
+    box-sizing: border-box;
+    text-transform: uppercase;
+    font-family: "Roboto Condensed",Roboto,Helvetica,sans-serif;
+    font-size: 13px;
+    font-weight: bold;
+    padding: 10px;
+    text-decoration: none;
+    outline: 0;
+    color: #1b9af0;
+    border: none;
+	cursor: pointer;
+    outline: inherit;
+    background: none;
 }

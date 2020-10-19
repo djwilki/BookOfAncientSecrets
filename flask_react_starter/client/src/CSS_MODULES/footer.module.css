@@ -1,8 +1,10 @@
 .footer_bar {
-    height: 90px;
+    height: 5vh;
     background-color: black;
     display: flex;
     justify-content: center;
+    position: relative;
+    top: 20vh;
 }
 
 .footer_link_container {
@@ -26,5 +28,6 @@
 	color: white;
 	border: none;
 	cursor: pointer;
-	outline: inherit;
+    outline: inherit;
+    text-decoration: none;
 }

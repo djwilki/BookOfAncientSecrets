@@ -46,6 +46,14 @@ function PageEdit({ history }) {
     const deleteLink = async (e) => {
         e.preventDefault()
         const res = await (dispatch(removeLink(e.target.value)))
+        // if (res.ok) {
+        //     return;
+        // }
+    }
+
+    const handleCancel = (e) => {
+        e.preventDefault()
+        history.replace('adventure-view');
     }
 
     return (
@@ -76,7 +84,7 @@ function PageEdit({ history }) {
                                 !Object.values(links).filter(ele => ele.fromId === selectedPageId).map(ele => {
                                     return ele.toId
                                 }).includes(page.id)) {
-                                    console.log(page.title)
+                                    // console.log(page.title)
                                 return <option key={page.id} value={Number(page.id)}>{page.title}</option>
                             }
                             return "";
@@ -85,6 +93,7 @@ function PageEdit({ history }) {
                     <input type="text" placeholder="Enter Link Text" onChange={(e) => setLinkText(e.target.value)} className={styles.form_title_text} />
                     <button className={styles.form_button} onClick={handleLink}>Add Link</button>
                     <button className={styles.form_button} onClick={handleClick}>Save Page</button>
+                    <button className={styles.form_button} onClick={handleCancel}>Cancel</button>
                 </div>
             </> : <></>}
         </div>

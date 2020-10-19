@@ -38,6 +38,11 @@ function PageForm({ history }) {
 
     // }
 
+    const handleCancel = (e) => {
+        e.preventDefault()
+        history.replace('adventure-view');
+    }
+
     return (
         <div className={styles.page_div}>
             <div className={styles.outermost_form_container}>
@@ -59,6 +64,7 @@ function PageForm({ history }) {
                 <input type="text" placeholder="Enter Link Text" onChange={(e) => setLinkText(e.target.value)} className={styles.form_title_text} />
                 <button className={styles.form_button} onClick={handleLink}>Add Link</button> */}
                 <button className={styles.form_button} onClick={handleClick}>Add Page</button>
+                <button className={styles.form_button} onClick={handleCancel}>Cancel</button>
             </div>
         </div>
     )

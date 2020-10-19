@@ -27,7 +27,7 @@ function PageView({history}) {
             <div>{selectedPage.content}</div>
             <hr></hr>
             <ul className={styles.link_list}>
-                {pageLinks.map(ele => <li key={ele.id}><button value={ele.toId} onClick={nextPage}>{ele.text}</button></li>)}
+                {pageLinks.map(ele => <li key={ele.id}><button value={ele.toId} className={styles.tile_link} onClick={nextPage}>{ele.text}</button></li>)}
             </ul>
             </>
             :<></>}

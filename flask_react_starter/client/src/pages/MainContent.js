@@ -69,9 +69,6 @@ function MainContent(props) {
                     <div className={styles.left_spacer}></div>
                     {userId ?
                         <Switch>
-                            <Route path="/users">
-                                <UserList />
-                            </Route>
                             <Route path="/choose">
                                 <CreateOrPlayPage />
                             </Route>

@@ -29,6 +29,11 @@ function AdventureForm({history}) {
         }
     }
 
+    const handleCancel = (e) => {
+        e.preventDefault()
+        history.replace('create-adventure');
+    }
+
     return (
         <div className={styles.page_div}>
             <div className={styles.outermost_form_container}>
@@ -40,6 +45,7 @@ function AdventureForm({history}) {
                 <textarea onChange={(e)=>setDescription(e.target.value)} className={styles.form_description_textarea}/>
                 <div className={styles.checkbox_container}><input type="checkbox" onChange={(e)=>setChecked(e.target.value)}/><span>Publish</span></div>
                 <button className={styles.form_button} onClick={handleClick}>Add Adventure</button>
+                <button className={styles.form_button} onClick={handleCancel}>Cancel</button>
             </div>
         </div>
     )

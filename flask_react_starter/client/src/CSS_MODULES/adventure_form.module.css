@@ -84,3 +84,7 @@
     border: 2px solid red ;
     border-radius: 3px;
   }
+
+  .link_item {
+    padding: 7px;
+  }

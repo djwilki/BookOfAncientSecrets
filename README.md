@@ -1,6 +1,6 @@
 # BookOfAncientSecrets
 
-<img src=/main/flask_react_starter/boas_logo.png style="display: flex; width: 50%; margin: auto" /> 
+<img src=./flask_react_starter/boas_logo.png style="display: flex; width: 50%; margin: auto" /> 
 
 ## Welcome to [Book of Ancient Secrets](https://book-of-ancient-secrets.herokuapp.com/), a choose your own adventure portal!
 

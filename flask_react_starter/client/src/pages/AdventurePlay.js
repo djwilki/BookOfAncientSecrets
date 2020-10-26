@@ -33,7 +33,6 @@ function AdventurePlay(props) {
     }, [dispatch, userId])
 
 
-    // console.log(adventures)
 
     const tiles = Object.values(adventures).map((ele, idx) => {
         return (

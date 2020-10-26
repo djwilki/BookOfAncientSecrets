@@ -5,16 +5,11 @@ import PageTile from '../components/PageTile'
 import NewTile from '../components/NewTile'
 
 function AdventureView (props) {
-    // console.log(props)
     const selectedAdventureId = useSelector(state => state.ui.selectedAdventureId)
     const selectedAdventure = useSelector(state => state.entities.adventures[selectedAdventureId])
     const userId = useSelector(state => state.session.userId)
-
-    // const adventures = useSelector(state => state.entities.adventures)
     const pages = useSelector(state=> state.entities.pages)
     const adventure_pages = Object.values(pages).filter(ele => ele.adventureId === selectedAdventureId)
-
-    // const dispatch = useDispatch()
 
     const tiles = Object.values(adventure_pages).map((ele, idx) => {
         return (

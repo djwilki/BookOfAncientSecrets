@@ -66,7 +66,6 @@ function PageEdit({ history }) {
                     <input onChange={(e) => setTitle(e.target.value)} className={styles.form_title_text} type="text" placeholder="Enter a name" defaultValue={page.title} />
                     <h3>Content</h3>
                     <textarea onChange={(e) => setContent(e.target.value)} className={styles.form_description_textarea} defaultValue={page.content} />
-                    {/* <div><input type="checkbox" onChange={(e) => setChecked(e.target.value)} /><span>Publish</span></div> */}
                     <h3>Links</h3>
                     <ul className={styles.link_list}>
                         {Object.values(links).filter((ele2) => ele2.fromId === selectedPageId).map((ele, idx) => {
@@ -84,7 +83,6 @@ function PageEdit({ history }) {
                                 !Object.values(links).filter(ele => ele.fromId === selectedPageId).map(ele => {
                                     return ele.toId
                                 }).includes(page.id)) {
-                                    // console.log(page.title)
                                 return <option key={page.id} value={Number(page.id)}>{page.title}</option>
                             }
                             return "";

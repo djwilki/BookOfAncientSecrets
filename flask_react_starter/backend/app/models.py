@@ -53,6 +53,10 @@ class Character(db.Model):
   features = db.Column(db.String)
   actions = db.Column(db.String)
   ownerId = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
+  pages = relationship(
+        "Page",
+        secondary=page_character_table,
+        back_populates="characters")
 
   def to_dict(self):
     return {
@@ -99,6 +103,11 @@ class Page(db.Model):
   content = db.Column(db.String, nullable=False)
   adventureId = db.Column(db.Integer, db.ForeignKey('adventures.id'), nullable=False)
   ownerId = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
+  characters = relationship(
+        "Character",
+        secondary=page_character_table,
+        back_populates="pages")
+
 
 
   def to_dict(self):
@@ -131,3 +140,8 @@ class Link(db.Model):
       "text": self.text,
       "ownerId": self.ownerId
     }
+
+page_character_table = Table('page_character', Base.metadata,
+    Column('character_id', Integer, ForeignKey('characters.id')),
+    Column('page_id', Integer, ForeignKey('pages.id'))
+)

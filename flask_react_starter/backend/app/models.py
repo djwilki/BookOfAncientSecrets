@@ -1,9 +1,16 @@
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import UserMixin
 from werkzeug.security import generate_password_hash, check_password_hash
+from sqlalchemy.ext.declarative import declarative_base
 
 
 db = SQLAlchemy()
+
+# page_character = db.Table('page_character',
+#     db.Column('id', db.Integer, primary_key=True),
+#     db.Column('character_id', db.Integer, db.ForeignKey('characters.id'), primary_key=True),
+#     db.Column('page_id', db.Integer, db.ForeignKey('pages.id'), primary_key=True)
+# )
 
 
 class User(db.Model, UserMixin):
@@ -53,10 +60,6 @@ class Character(db.Model):
   features = db.Column(db.String)
   actions = db.Column(db.String)
   ownerId = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
-  pages = relationship(
-        "Page",
-        secondary=page_character_table,
-        back_populates="characters")
 
   def to_dict(self):
     return {
@@ -103,10 +106,10 @@ class Page(db.Model):
   content = db.Column(db.String, nullable=False)
   adventureId = db.Column(db.Integer, db.ForeignKey('adventures.id'), nullable=False)
   ownerId = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
-  characters = relationship(
-        "Character",
-        secondary=page_character_table,
-        back_populates="pages")
+  # page_character = db.relationship(
+  #       "Character",
+  #       secondary=page_character, lazy='subquery',
+  #       back_populates="pages")
 
 
 
@@ -140,8 +143,3 @@ class Link(db.Model):
       "text": self.text,
       "ownerId": self.ownerId
     }
-
-page_character_table = Table('page_character', Base.metadata,
-    Column('character_id', Integer, ForeignKey('characters.id')),
-    Column('page_id', Integer, ForeignKey('pages.id'))
-)

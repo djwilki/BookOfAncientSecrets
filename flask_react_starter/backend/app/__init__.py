@@ -11,6 +11,7 @@ from .api.user_routes import user_routes
 from .api.adventures import adventure_routes
 from .api.pages import page_routes
 from .api.links import link_routes
+from .api.characters import character_routes
 
 from .config import Config
 
@@ -21,6 +22,7 @@ app.register_blueprint(session, url_prefix='/api/session')
 app.register_blueprint(adventure_routes, url_prefix='/api/adventures')
 app.register_blueprint(page_routes, url_prefix='/api/pages')
 app.register_blueprint(link_routes, url_prefix='/api/links')
+app.register_blueprint(link_routes, url_prefix='/api/characters')
 db.init_app(app)
 login_manager.init_app(app)
 Migrate(app, db)

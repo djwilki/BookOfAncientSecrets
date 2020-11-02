@@ -11,6 +11,7 @@ character_routes = Blueprint('characters', __name__)
 def new():
     data = MultiDict(mapping=request.json)
     form = CharacterForm(data)
+    print('why?')
     if form.validate():
         new_persona = Character(name=data['name'],
                                 strength=data['strength'],

@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, { useEffect } from 'react';
 import { Switch, Route } from 'react-router-dom';
 import HomePage from '../pages/HomePage'
 import UserList from '../components/UsersList';
@@ -11,6 +11,8 @@ import AdventurePlay from './AdventurePlay'
 import PageForm from './PageForm';
 import PageView from './PageView'
 import PageEdit from './PageEdit'
+import CreateCharacterPage from './CreateCharacterPage'
+import CharacterForm from './CharacterForm'
 import DiceRoller from '../components/DiceRoller'
 import NavBar from '../components/NavBar'
 import '../CSS_MODULES/body.css'
@@ -54,17 +56,6 @@ function MainContent(props) {
         <>
             <div className={styles.main_container}>
                 <NavBar />
-                {/* <nav>
-                <ul>
-                    <li><NavLink to="/" activeclass="active">Home</NavLink></li>
-                    <li><NavLink to="/users" activeclass="active">Users</NavLink></li>
-                    <li><NavLink to="/choose" activeclass="active">Create or Play</NavLink></li>
-                    <li><NavLink to="/create-adventure" activeclass="active">Create Adventure</NavLink></li>
-                    <li><NavLink to="/adventure-form" activeclass="active">Adventure Form</NavLink></li>
-                    <li><NavLink to="/page-form" activeclass="active">Adventure Form</NavLink></li>
-                </ul>
-            </nav> */}
-
                 <div className={styles.dice_room}>
                     <div className={styles.left_spacer}></div>
                     {userId ?
@@ -95,6 +86,12 @@ function MainContent(props) {
                             </Route>
                             <Route path="/page-edit">
                                 <PageEdit />
+                            </Route>
+                            <Route path="/create-character">
+                                <CreateCharacterPage />
+                            </Route>
+                            <Route path="/character-form">
+                                <CharacterForm />
                             </Route>
                             <Route path="/">
                                 <HomePage />

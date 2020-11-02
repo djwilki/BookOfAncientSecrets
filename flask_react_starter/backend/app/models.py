@@ -1,9 +1,16 @@
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import UserMixin
 from werkzeug.security import generate_password_hash, check_password_hash
+from sqlalchemy.ext.declarative import declarative_base
 
 
 db = SQLAlchemy()
+
+page_characters = db.Table('page_characters',
+    db.Column('id', db.Integer, primary_key=True),
+    db.Column('character_id', db.Integer, db.ForeignKey('characters.id'), primary_key=True),
+    db.Column('page_id', db.Integer, db.ForeignKey('pages.id'), primary_key=True)
+)
 
 
 class User(db.Model, UserMixin):
@@ -53,6 +60,11 @@ class Character(db.Model):
   features = db.Column(db.String)
   actions = db.Column(db.String)
   ownerId = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
+  page = db.relationship(
+        "Page",
+        secondary=page_characters,
+        backref="characters")
+
 
   def to_dict(self):
     return {
@@ -99,6 +111,11 @@ class Page(db.Model):
   content = db.Column(db.String, nullable=False)
   adventureId = db.Column(db.Integer, db.ForeignKey('adventures.id'), nullable=False)
   ownerId = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
+  character = db.relationship(
+        "Character",
+        secondary=page_characters,
+        backref="pages")
+
 
 
   def to_dict(self):
@@ -114,11 +131,8 @@ class Link(db.Model):
   __tablename__ = "links"
 
   id = db.Column(db.Integer, primary_key=True)
-  # fromId = db.Column(db.Integer, nullable=False)
-  # toId = db.Column(db.Integer, nullable=False)
   text = db.Column(db.String(255), nullable=False)
   ownerId = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
-
   toId = db.Column(db.Integer, db.ForeignKey('pages.id'), nullable=False)
   fromId = db.Column(db.Integer, db.ForeignKey('pages.id'), nullable=False)
 
@@ -131,3 +145,10 @@ class Link(db.Model):
       "text": self.text,
       "ownerId": self.ownerId
     }
+
+# class Page_Character(db.Model):
+#   __tablename__ = "page_characters"
+
+#   db.Column('id', db.Integer, primary_key=True),
+#   db.Column('character_id', db.Integer, db.ForeignKey('characters.id'), primary_key=True),
+#   db.Column('page_id', db.Integer, db.ForeignKey('pages.id'), primary_key=True)

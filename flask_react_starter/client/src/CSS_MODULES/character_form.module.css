@@ -1,0 +1,90 @@
+.outermost_form_container{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 100px;
+    max-width: 1200px;
+    width: 90vw;
+}
+
+.form_title_text {
+    max-width: 200px;
+    outline: none;
+    box-sizing: border-box;
+    height: 50px;
+    width: 250px;
+    padding: 10px;
+    border: 1px solid #D8DDE3;
+    font-family: Roboto,Helvetica,sans-serif!important;
+    background-color: rgba(255,255,255,0.75);
+    box-shadow: inset 0 0 4px 0 rgba(139,178,199,0.48);
+    border-radius: 0;
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+
+.form_button {
+    max-width: 200px;
+    margin-top: 10px;
+    font-family: "Roboto Condensed",Roboto,Helvetica,sans-serif;
+    font-weight: bold;
+    background: #BC0F0F;
+    box-shadow: none;
+    border: 0;
+    transition: 100ms linear all;
+    text-transform: uppercase;
+    text-shadow: none;
+    max-width: 225px;
+    color: white;
+    padding: .61538em .61538em;
+    border-radius: 5px;
+    outline: none !important;
+}
+
+.form_button:hover {
+    background-color: #eb1313;
+}
+
+
+.form_description_textarea {
+    height: 40vh;
+    white-space: pre-wrap;
+    outline: none;
+}
+
+.page_div {
+    max-width: 1200px;
+/* margin: auto */
+  }
+
+  .hr {
+      background-color: #1b9af0;
+      border: 0;
+  clear:both;
+  display:block;
+  width: 100%;
+  height: 3px;
+  }
+
+  .checkbox_container {
+    padding: 15px 5px 10px;
+  }
+
+  .link_list{
+    list-style: none;
+  }
+
+  .link_item_link {
+    padding-right: 10px;
+  }
+
+  .link_button_delete {
+    color: red;
+    background-color: transparent;
+    outline: none;
+    border: 2px solid red ;
+    border-radius: 3px;
+  }
+
+  .link_item {
+    padding: 7px;
+  }

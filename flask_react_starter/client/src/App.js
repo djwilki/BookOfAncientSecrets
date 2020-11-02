@@ -6,8 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { setUserAdventures } from '../src/store/adventures'
 import { setUserPages } from '../src/store/pages'
 import { setUserLinks } from '../src/store/links'
-import {setSelectedAdventureId} from '../src/store/ui'
-import {setSelectedPageId} from '../src/store/ui'
+import {setSelectedAdventureId, setSelectedPageId, setSelectedCharacterId} from '../src/store/ui'
 
 
 
@@ -34,6 +33,8 @@ function App() {
             await dispatch(setSelectedAdventureId(Number(selectedAdvId)))
             const selectedPgId = await localStorage.getItem('selectedPage')
             await dispatch(setSelectedPageId(Number(selectedPgId)))
+            const selectedChId = await localStorage.getItem('selectedCharacter')
+            await dispatch(setSelectedCharacterId(Number(selectedChId)))
             await dispatch(loadSession());
         }
         load()

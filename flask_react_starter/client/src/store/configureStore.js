@@ -7,6 +7,7 @@ import adventures from './adventures'
 import pages from './pages'
 import links from './links'
 import ui from './ui';
+import characters from './characters'
 
 let storeEnhancer;
 
@@ -14,6 +15,7 @@ const entities = combineReducers({
     users,
     adventures,
     pages,
+    characters,
     links,
 });
 

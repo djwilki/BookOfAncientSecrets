@@ -19,3 +19,14 @@ class LinkForm(FlaskForm):
     fromId = IntegerField("FromId", validators=[InputRequired("Please provide a valid page.")])
     toId = IntegerField("ToId", validators=[InputRequired("Please provide a valid page.")])
     text = StringField("Text", validators=[InputRequired("Please provide valid text for your link.")])
+
+class CharacterForm(FlaskForm):
+    name = StringField("Name", validators=[InputRequired("Please provide a valid name.")])
+    strength = IntegerField("Strength", validators=[InputRequired("Please provide a valid strength score.")])
+    dexterity = IntegerField("Strength", validators=[InputRequired("Please provide a valid strength score.")])
+    constitution = IntegerField("Strength", validators=[InputRequired("Please provide a valid strength score.")])
+    intelligence = IntegerField("Strength", validators=[InputRequired("Please provide a valid strength score.")])
+    widsom = IntegerField("Strength", validators=[InputRequired("Please provide a valid strength score.")])
+    charisma = IntegerField("Strength", validators=[InputRequired("Please provide a valid strength score.")])
+    armor_class = IntegerField("Strength", validators=[InputRequired("Please provide a valid armor class value.")])
+    max_hitpoints = IntegerField("Strength", validators=[InputRequired("Please provide a valid maximum hitpoints score.")])

@@ -6,12 +6,11 @@ from werkzeug.datastructures import MultiDict
 
 character_routes = Blueprint('characters', __name__)
 
-
 @character_routes.route('/', methods=["POST"])
 def new():
     data = MultiDict(mapping=request.json)
     form = CharacterForm(data)
-    print('why?')
+    print(form.validate())
     if form.validate():
         new_persona = Character(name=data['name'],
                                 strength=data['strength'],
@@ -32,6 +31,7 @@ def new():
     else:
         res = make_response(
             {"errors": [form.errors[error][0] for error in form.errors]}, 401)
+        print(form.errors)
         return res
 
 

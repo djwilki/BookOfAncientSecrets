@@ -40,11 +40,12 @@ export const addCharacter = (name,
                             intelligence,
                             wisdom,
                             charisma,
-                            armor_class,
-                            max_hitpoints,
+                            armorClass,
+                            maxHitpoints,
                             features = "",
                             actions = "",
                             ownerId) => {
+                                console.log(armorClass, maxHitpoints)
     const csrfToken = Cookies.get('XSRF-TOKEN');
     const path = '/api/characters/';
     return async dispatch => {
@@ -55,14 +56,14 @@ export const addCharacter = (name,
                 'X-CSRFTOKEN': csrfToken
             },
             body: JSON.stringify({ name,
-                strength,
-                dexterity,
-                constitution,
-                intelligence,
-                wisdom,
-                charisma,
-                armor_class,
-                max_hitpoints,
+                strength: Number(strength),
+                dexterity: Number(dexterity),
+                constitution: Number(constitution),
+                intelligence: Number(intelligence),
+                wisdom: Number(wisdom),
+                charisma: Number(charisma),
+                armor_class: Number(armorClass),
+                max_hitpoints: Number(maxHitpoints),
                 features,
                 actions,
                 ownerId, "csrf_token": csrfToken })

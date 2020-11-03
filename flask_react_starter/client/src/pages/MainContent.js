@@ -13,6 +13,7 @@ import PageView from './PageView'
 import PageEdit from './PageEdit'
 import CreateCharacterPage from './CreateCharacterPage'
 import CharacterForm from './CharacterForm'
+import CharacterView from './CharacterView'
 import DiceRoller from '../components/DiceRoller'
 import NavBar from '../components/NavBar'
 import '../CSS_MODULES/body.css'
@@ -22,6 +23,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { setUserAdventures } from '../store/adventures'
 import { setUserPages } from '../store/pages'
 import { setUserLinks } from '../store/links'
+import { setUserCharacters } from '../store/characters'
 
 function MainContent(props) {
 
@@ -42,6 +44,11 @@ function MainContent(props) {
                 await dispatch(setUserPages(userId));
             }
             getPages()
+
+            const getCharacters = async () => {
+                await dispatch(setUserCharacters(userId));
+            }
+            getCharacters()
 
             const getLinks = async () => {
                 await dispatch(setUserLinks(userId));
@@ -92,6 +99,9 @@ function MainContent(props) {
                             </Route>
                             <Route path="/character-form">
                                 <CharacterForm />
+                            </Route>
+                            <Route path="/character-view">
+                                <CharacterView />
                             </Route>
                             <Route path="/">
                                 <HomePage />

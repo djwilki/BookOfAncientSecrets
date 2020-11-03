@@ -66,8 +66,8 @@ function CharacterForm({history}) {
                     <span>Charisma Score</span><input type="number" min="0" max="20" onChange={(e)=>setCharisma(e.target.value)}/>
                 </div>
                 <h5>CHARACTER STATISTICS</h5>
-                <span>Armor Class</span><input type="number" min="0" max="20" onChange={(e)=>setStrength(e.target.value)}/>
-                <span>Maximum Hitpoints</span><input type="number" min="0" max="20" onChange={(e)=>setStrength(e.target.value)}/>
+                <span>Armor Class</span><input type="number" min="0" max="20" onChange={(e)=>setArmorClass(e.target.value)}/>
+                <span>Maximum Hitpoints</span><input type="number" min="0" max="20" onChange={(e)=>setMaxHitpoints(e.target.value)}/>
                 <button className={styles.form_button} onClick={handleClick}>Add Character</button>
                 <button className={styles.form_button} onClick={handleCancel}>Cancel</button>
             </div>

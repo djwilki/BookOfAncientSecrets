@@ -17,7 +17,7 @@ function CreateOrPlayPage(props) {
                 </div>
                 <div className={styles.choose_path_container}>
                     <img alt="" className={styles.choose_image} src="http://dndspeak.com/wp-content/uploads/2018/04/7d432764399c8d1359ee5326fdac1537-d39rayp.jpg" />
-                    <NavLink className="Navlink" to="/create-character" activeclass="active">Manage Your Characters</NavLink>
+                    <NavLink className="Navlink" to="/create-character" activeclass="active">Manage Characters</NavLink>
                 </div>
                 <NavLink className={`NavLink ${styles.choose_path_container}`} to="/adventure-play" activeclass="active" className={styles.choose_path_container}>
                     <img alt="" className={styles.choose_image} src="http://2.bp.blogspot.com/-x2KCRXnNqys/TaQr81wjHiI/AAAAAAAAB20/sxCQQ8nomfc/s1600/skane7.jpg" />

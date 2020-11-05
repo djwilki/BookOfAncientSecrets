@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import styles from '../CSS_MODULES/character_form.module.css'
 import {useDispatch, useSelector} from 'react-redux'
-import {addCharacter} from '../store/characters'
+import {updateCharacter} from '../store/characters'
 import { withRouter } from 'react-router-dom';
 
 
@@ -24,7 +24,7 @@ function CharacterEdit({history}) {
     const handleClick = async (e) => {
         e.preventDefault()
 
-        const res = await dispatch(addCharacter(
+        const res = await dispatch(updateCharacter(
                                 name,
                                 strength,
                                 dexterity,

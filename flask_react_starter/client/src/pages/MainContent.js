@@ -112,6 +112,12 @@ function MainContent(props) {
                             <Route path="/">
                                 <HomePage />
                             </Route>
+                            <Route path="/login">
+
+                            </Route>
+                            <Route path="/signup">
+
+                            </Route>
                         </Switch>}
                     <DiceRoller />
                 </div>

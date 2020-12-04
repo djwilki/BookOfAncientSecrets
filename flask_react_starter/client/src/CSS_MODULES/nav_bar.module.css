@@ -35,6 +35,7 @@
     outline: inherit;
     font-family: inherit;
     white-space: nowrap;
+    margin-right: 15px;
 }
 
 .nav_bar{

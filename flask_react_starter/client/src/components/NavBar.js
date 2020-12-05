@@ -27,6 +27,20 @@ function NavBar({history}) {
 
     }
 
+    const handleLogin = async (e) => {
+        e.preventDefault();
+            history.replace('/login');
+            return;
+    }
+
+    const handleSignUp = async (e) => {
+        e.preventDefault();
+
+            history.replace('/signup');
+            return;
+
+    }
+
     const handleDemoLogout = async (e) => {
         e.preventDefault();
         await dispatch(logout())
@@ -43,7 +57,7 @@ function NavBar({history}) {
                         <span className={styles.logo_label}>Book of Ancient Secrets</span>
                     </button>
                     {/* </div> */}
-                    {userId ?  <button className={styles.log_button} type="button" onClick={handleDemoLogout}>Logout Demo User</button> : <button className={styles.log_button} type="button" onClick={handleDemoLogin}>Log in as Demo User</button>}
+                    {userId ?  <button className={styles.log_button} type="button" onClick={handleDemoLogout}>Logout Demo User</button> : <><button className={styles.log_button} type="button" onClick={handleSignUp}> Sign Up </button> <button className={styles.log_button} type="button" onClick={handleLogin}>Log in</button></>}
                 </div>
             </div>
         </>

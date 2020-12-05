@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { withRouter, Link } from 'react-router-dom'
 import { login } from '../store/session'
-import styles from '../CSS_MODULES/auth_module.css';
+import styles from '../CSS_MODULES/auth.module.css';
 
-const LoginForm = ({history}) => {
+const LoginForm = ({ history }) => {
     const [emailOrUsername, setEmailOrUsername] = useState("");
     const [password, setPassword] = useState("");
     const dispatch = useDispatch();
@@ -41,6 +41,11 @@ const LoginForm = ({history}) => {
             <div className="body">
                 <div className={`${styles.form_wrapper} ${styles.centered}`}>
                     <div className={styles.form_container}>
+                        <div className={styles.form_header}>
+                            <h1 className={styles.header_title}>
+                                Log in
+                            </h1>
+                        </div>
                         <div className={styles.login_form_container}>
                             <form method="" action="" onSubmit={handleSubmit}>
                                 <div>
@@ -56,7 +61,7 @@ const LoginForm = ({history}) => {
                         <div className={styles.form_footer}>
                             <div className={styles.footer_tagline}>
                                 Don't have an account?
-                    </div>
+                            </div>
                             <div className={styles.footer_cta_wrapper}>
                                 <Link className={styles.footer_cta} to='/signup'>Create account</Link>
                             </div>

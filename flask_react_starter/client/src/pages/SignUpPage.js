@@ -25,8 +25,6 @@ const SignUpPage = ({ history }) => {
             history.replace("/")
             return;
         }
-
-        setErrors(res.data.errors);
     }
 
     const demoUserClick = async (event) => {
@@ -36,7 +34,6 @@ const SignUpPage = ({ history }) => {
             history.replace('/');
             return;
         }
-        setErrors(res.data.errors);
     }
 
     return (

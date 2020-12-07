@@ -30,3 +30,8 @@ class CharacterForm(FlaskForm):
     charisma = IntegerField("Charisma", validators=[InputRequired("Please provide a valid strength score.")])
     armor_class = IntegerField("AC", validators=[InputRequired("Please provide a valid armor class value.")])
     max_hitpoints = IntegerField("HP", validators=[InputRequired("Please provide a valid maximum hitpoints score.")])
+
+class SignUpForm(FlaskForm):
+    username = StringField("Username", validators=[InputRequired("Please provide a valid username.")])
+    email = StringField("Email", validators=[InputRequired("Please provide a valid email."), Email("Please provide a valid email.")])
+    password = PasswordField("Password", validators=[InputRequired("Please provide a valid password.")])

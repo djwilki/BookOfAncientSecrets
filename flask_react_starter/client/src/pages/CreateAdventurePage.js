@@ -17,17 +17,20 @@ function CreateAdventurePage() {
 
     useEffect(() => {
         const getAdventures = async () => {
-            await dispatch(setUserAdventures(userId));
+            const res = await dispatch(setUserAdventures(userId));
+            return res.ok
         }
         getAdventures()
 
         const getPages = async () => {
-            await dispatch(setUserPages(userId));
+            const res = await dispatch(setUserPages(userId));
+            return res.ok
         }
         getPages()
 
         const getLinks = async () => {
-            await dispatch(setUserLinks(userId));
+            const res = await dispatch(setUserLinks(userId));
+            return res.ok
         }
         getLinks()
 

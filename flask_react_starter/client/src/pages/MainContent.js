@@ -17,6 +17,7 @@ import CharacterView from './CharacterView'
 import DiceRoller from '../components/DiceRoller'
 import NavBar from '../components/NavBar'
 import LoginForm from './LoginForm'
+import SignUpPage from './SignUpPage'
 import '../CSS_MODULES/body.css'
 import styles from '../CSS_MODULES/main_content.module.css'
 import Footer from '../components/Footer'
@@ -107,16 +108,23 @@ function MainContent(props) {
                             <Route path="/">
                                 <HomePage />
                             </Route>
+                            <Route path="/signup">
+                                <SignUpPage />
+                            </Route>
+                            <Route path="/login">
+                                <LoginForm />
+                            </Route>
                         </Switch>
                         :
                         <Switch>
                             <Route path="/login">
                                 <LoginForm />
                             </Route>
+                            <Route path="/signup">
+                                <SignUpPage />
+                            </Route>
                             <Route path="/">
                                 <HomePage />
-                            </Route>
-                            <Route path="/signup">
                             </Route>
                         </Switch>}
                     <DiceRoller />

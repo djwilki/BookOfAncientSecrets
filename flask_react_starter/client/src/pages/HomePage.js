@@ -1,16 +1,18 @@
 import React from 'react'
 // import {useDispatch} from 'react-redux'
 // import { login, logout } from '../store/session'
-import { withRouter } from 'react-router-dom';
+import { withRouter, NavLink } from 'react-router-dom';
 
 
-function HomePage({history}) {
+function HomePage({ history }) {
 
 
     return (
-        <>
-        <h1>Log in, fool!</h1>
-        </>
+            <div>
+                <h1>Welcome to Book of Ancient Secrets!</h1>
+                <h2>If you don't have an account yet, <NavLink to='/signup'>sign up!</NavLink></h2>
+                <h2>If you do, <NavLink to='/login'>log in!</NavLink></h2>
+            </div>
     )
 }
 

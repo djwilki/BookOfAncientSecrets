@@ -11,19 +11,22 @@ function AdventureTile({ tempkey, title, contentId, path, history }) {
 
     const handleDelete = async (e) => {
         e.preventDefault()
-        await dispatch(removeAdventure(contentId))
+        const res = await dispatch(removeAdventure(contentId))
+        return res.ok
     }
 
     const handleView = async (e) => {
         e.preventDefault()
-        await dispatch(setSelectedAdventureId(contentId))
+        const res = await dispatch(setSelectedAdventureId(contentId))
         history.push('/adventure-view')
+        return res.ok
     }
 
     const handleEdit = async (e) => {
         e.preventDefault()
-        await dispatch(setSelectedAdventureId(contentId))
+        const res = await dispatch(setSelectedAdventureId(contentId))
         history.push('/adventure-edit')
+        return res.ok
     }
 
 

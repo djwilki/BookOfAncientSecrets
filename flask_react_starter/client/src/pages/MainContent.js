@@ -14,6 +14,7 @@ import PageEdit from './PageEdit'
 import CreateCharacterPage from './CreateCharacterPage'
 import CharacterForm from './CharacterForm'
 import CharacterView from './CharacterView'
+import CharacterEdit from './CharacterEdit'
 import DiceRoller from '../components/DiceRoller'
 import NavBar from '../components/NavBar'
 import LoginForm from './LoginForm'
@@ -104,6 +105,9 @@ function MainContent(props) {
                             </Route>
                             <Route path="/character-view">
                                 <CharacterView />
+                            </Route>
+                            <Route path="/character-edit">
+                                <CharacterEdit />
                             </Route>
                             <Route path="/">
                                 <HomePage />

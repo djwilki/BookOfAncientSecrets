@@ -8,21 +8,20 @@ import { withRouter } from 'react-router-dom';
 function CharacterEdit({ history }) {
     const selectedCharacterId = useSelector(state => state.ui.selectedCharacterId)
     const selectedCharacter = useSelector(state => state.entities.characters[selectedCharacterId])
-    const [name, setname,] = useState("");
-    const [strength, setStrength] = useState("");
-    const [dexterity, setDexterity] = useState("");
-    const [constitution, setConstitution] = useState("");
-    const [intelligence, setIntelligence] = useState("");
-    const [wisdom, setWisdom] = useState("");
-    const [charisma, setCharisma] = useState("");
-    const [armorClass, setArmorClass] = useState("");
-    const [maxHitpoints, setMaxHitpoints] = useState("");
-    const [features, setFeatures] = useState("");
-    const [actions, setActions] = useState("");
+    console.log(selectedCharacter)
+    const [name, setName,] = useState(selectedCharacter['name']);
+    const [strength, setStrength] = useState(selectedCharacter['strength']);
+    const [dexterity, setDexterity] = useState(selectedCharacter['dexterity']);
+    const [constitution, setConstitution] = useState(selectedCharacter['constitution']);
+    const [intelligence, setIntelligence] = useState(selectedCharacter['intelligence']);
+    const [wisdom, setWisdom] = useState(selectedCharacter['wisdom']);
+    const [charisma, setCharisma] = useState(selectedCharacter['charisma']);
+    const [armorClass, setArmorClass] = useState(selectedCharacter['armorClass']);
+    const [maxHitpoints, setMaxHitpoints] = useState(selectedCharacter['maxHitpoints']);
+    const [features, setFeatures] = useState(selectedCharacter['features']);
+    const [actions, setActions] = useState(selectedCharacter['actions']);
     const userId = useSelector(state => state.session.userId)
     const dispatch = useDispatch()
-
-    const selectedCharacterId = useSelector(state => state.ui.selectedCharacterId)
 
 
     const handleClick = async (e) => {
@@ -60,7 +59,7 @@ function CharacterEdit({ history }) {
                 <h1>Create a Character</h1>
                 <hr className={styles.hr}></hr>
                 <h5 className={styles.field_title}>CHARACTER NAME</h5>
-                <input onChange={(e) => setName(e.target.value)} className={styles.form_title_text} type="text" placeholder="Enter a name" />
+                <input onChange={(e) => setName(e.target.value)} className={styles.form_title_text} type="text" placeholder={name} />
                 <h5 className={styles.field_title}>ABILITY SCORES</h5>
                 <div className={styles.score_container}>
                     <span>Strength Score</span><input type="number" min="0"     placeholder={strength} max="20" onChange={(e) => setStrength(e.target.value)} />
@@ -71,8 +70,8 @@ function CharacterEdit({ history }) {
                     <span>Charisma Score</span><input type="number" min="0"     placeholder={charisma} max="20" onChange={(e) => setCharisma(e.target.value)} />
                 </div>
                 <h5>CHARACTER STATISTICS</h5>
-                <span>Armor Class</span><input type="number" min="0" max="20" onChange={(e) => setArmorClass(e.target.value)} />
-                <span>Maximum Hitpoints</span><input type="number" min="0" max="20" onChange={(e) => setMaxHitpoints(e.target.value)} />
+                <span>Armor Class</span><input type="number" min="0" max="20" placeholder={armorClass} onChange={(e) => setArmorClass(e.target.value)} />
+                <span>Maximum Hitpoints</span><input type="number" min="0" max="20" placeholder={maxHitpoints} onChange={(e) => setMaxHitpoints(e.target.value)} />
                 <button className={styles.form_button} onClick={handleClick}>Add Character</button>
                 <button className={styles.form_button} onClick={handleCancel}>Cancel</button>
             </div>

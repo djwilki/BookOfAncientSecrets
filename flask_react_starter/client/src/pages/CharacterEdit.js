@@ -59,23 +59,41 @@ function CharacterEdit({ history }) {
                 <h1>Create a Character</h1>
                 <hr className={styles.hr}></hr>
                 <h5 className={styles.field_title}>CHARACTER NAME</h5>
+                <hr></hr>
                 <input onChange={(e) => setName(e.target.value)} className={styles.form_title_text} type="text" placeholder={name} />
                 <h5 className={styles.field_title}>ABILITY SCORES</h5>
-                <div className={styles.score_container}>
-                    <span>Strength Score</span><input type="number" min="0"     placeholder={strength} max="20" onChange={(e) => setStrength(e.target.value)} />
-                    <span>Dexterity Score</span><input type="number" min="0"    placeholder={dexterity} max="20" onChange={(e) => setDexterity(e.target.value)} />
-                    <span>Constitution Score</span><input type="number" min="0" placeholder={constitution} max="20" onChange={(e) => setConstitution(e.target.value)} />
-                    <span>Intelligence Score</span><input type="number" min="0" placeholder={intelligence} max="20" onChange={(e) => setIntelligence(e.target.value)} />
-                    <span>Wisdom Score</span><input type="number" min="0"       placeholder={wisdom} max="20" onChange={(e) => setWisdom(e.target.value)} />
-                    <span>Charisma Score</span><input type="number" min="0"     placeholder={charisma} max="20" onChange={(e) => setCharisma(e.target.value)} />
+                <hr></hr>
+                <div className={styles.score_list}>
+                    <div className={styles.score_container}>
+                        <div>Strength Score</div><input type="number" min="0" placeholder={strength} max="20" onChange={(e) => setStrength(e.target.value)} />
+                    </div>
+                    <div className={styles.score_container}>
+                        <div>Dexterity Score</div><input type="number" min="0" placeholder={dexterity} max="20" onChange={(e) => setDexterity(e.target.value)} />
+                    </div>
+                    <div className={styles.score_container}>
+                        <div>Constitution Score</div><input type="number" min="0" placeholder={constitution} max="20" onChange={(e) => setConstitution(e.target.value)} />
+                    </div>
+                    <div className={styles.score_container}>
+                        <div>Intelligence Score</div><input type="number" min="0" placeholder={intelligence} max="20" onChange={(e) => setIntelligence(e.target.value)} />
+                    </div>
+                    <div className={styles.score_container}>
+                        <div>Wisdom Score</div><input type="number" min="0" placeholder={wisdom} max="20" onChange={(e) => setWisdom(e.target.value)} />
+                    </div>
+                    <div className={styles.score_container}>
+                        <div>Charisma Score</div><input type="number" min="0" placeholder={charisma} max="20" onChange={(e) => setCharisma(e.target.value)} />
+                    </div>
                 </div>
                 <h5>CHARACTER STATISTICS</h5>
-                <span>Armor Class</span><input type="number" min="0" max="20" placeholder={armorClass} onChange={(e) => setArmorClass(e.target.value)} />
-                <span>Maximum Hitpoints</span><input type="number" min="0" max="20" placeholder={maxHitpoints} onChange={(e) => setMaxHitpoints(e.target.value)} />
+                <hr></hr>
+                <div className={styles.score_container}>
+                    <div>Armor Class</div><input type="number" min="0" max="20" placeholder={armorClass} onChange={(e) => setArmorClass(e.target.value)} />
+                    <div>Maximum Hitpoints</div><input type="number" min="0" max="20" placeholder={maxHitpoints} onChange={(e) => setMaxHitpoints(e.target.value)} />
+                </div>
+
                 <button className={styles.form_button} onClick={handleClick}>Add Character</button>
                 <button className={styles.form_button} onClick={handleCancel}>Cancel</button>
             </div>
-        </div>
+        </div >
     )
 }
 

@@ -31,3 +31,8 @@
     outline: inherit;
     background: none;
 }
+
+.tile_stack {
+  display: flex;
+  flex-direction: row;
+}

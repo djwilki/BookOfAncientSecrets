@@ -1,0 +1,28 @@
+.stat_modifier {
+    box-sizing: border-box;
+    width: 16.66666%;
+    min-width: fit-content;
+    height: fit-content;
+    padding: 5px;
+    margin: 5px;
+    border: 2px solid black;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: larger;
+}
+
+.stat_value {
+    box-sizing: border-box;
+    width: fit-content;
+    height: fit-content;
+    padding: 5px;
+    border: 1px solid black;
+    border-radius: 5px;
+    font-size: small;
+}
+
+.modifier {
+    padding: 7px;
+}

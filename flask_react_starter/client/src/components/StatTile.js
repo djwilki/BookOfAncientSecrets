@@ -1,5 +1,5 @@
 import React from 'react'
-import styles from '../CSS_MODULES/content_tile.module.css'
+import styles from '../CSS_MODULES/stat_tile.module.css'
 import { withRouter } from 'react-router-dom';
 
 
@@ -7,13 +7,11 @@ function StatTile({statName, statValue}) {
 
     return (
         <div className={styles.stat_modifier}>
-            <div className={styles.stat_value}>
-                <h1>{statName}</h1>
-                {Math.floor((statValue - 10) / 2) > 0 ? "+" : ""}{Math.floor((statValue - 10) / 2)}
-                <div>
+                <div>{statName}</div>
+                <div className={styles.modifier}>{Math.floor((statValue - 10) / 2) > 0 ? "+" : ""}{Math.floor((statValue - 10) / 2)}</div>
+                <div  className={styles.stat_value}>
                     {statValue}
                 </div>
-            </div>
         </div>
     )
 }

@@ -44,6 +44,7 @@ export const addCharacter = (name,
                             maxHitpoints,
                             features = "",
                             actions = "",
+                            image = "",
                             ownerId) => {
                                 console.log(armorClass, maxHitpoints)
     const csrfToken = Cookies.get('XSRF-TOKEN');
@@ -66,6 +67,7 @@ export const addCharacter = (name,
                 max_hitpoints: Number(maxHitpoints),
                 features,
                 actions,
+                image,
                 ownerId, "csrf_token": csrfToken })
         });
         const data = await res.json();
@@ -123,6 +125,7 @@ export const updateCharacter = (selectedCharacterId,
                                 max_hitpoints,
                                 features = "",
                                 actions = "",
+                                image,
                                 ownerId) => {
     const csrfToken = Cookies.get('XSRF-TOKEN');
     const path = `/api/characters/${selectedCharacterId}`;
@@ -144,6 +147,7 @@ export const updateCharacter = (selectedCharacterId,
                 max_hitpoints,
                 features,
                 actions,
+                image,
                 ownerId, "csrf_token": csrfToken })
         });
         const data = await res.json();

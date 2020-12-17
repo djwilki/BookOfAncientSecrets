@@ -18,6 +18,7 @@ function CharacterForm({history}) {
     const [maxHitpoints, setMaxHitpoints] = useState(null);
     const [features, setFeatures] = useState("");
     const [actions, setActions] = useState("");
+    const [image, setImage] = useState("")
     const userId = useSelector(state => state.session.userId)
     const dispatch = useDispatch()
 
@@ -36,6 +37,7 @@ function CharacterForm({history}) {
                                 maxHitpoints,
                                 features,
                                 actions,
+                                image,
                                 userId));
 
         if (res.ok) {
@@ -55,8 +57,9 @@ function CharacterForm({history}) {
                 <h1>Create a Character</h1>
                 <hr className={styles.hr}></hr>
                 <h5 className={styles.field_title}>CHARACTER NAME</h5>
-                <hr></hr>
                 <input onChange={(e) => setName(e.target.value)} className={styles.form_title_text} type="text" placeholder={name} />
+                <h5 className={styles.field_title}>CHARACTER IMAGE URL</h5>
+                <input onChange={(e) => setImage(e.target.value)} className={styles.form_title_text} type="text" placeholder='https://' />
                 <h5 className={styles.field_title}>ABILITY SCORES</h5>
                 <hr></hr>
                 <div className={styles.score_list}>

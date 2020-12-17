@@ -23,6 +23,7 @@ def new():
                                 max_hitpoints=data['max_hitpoints'],
                                 features=data['features'],
                                 actions=data['actions'],
+                                images=data['images'],
                                 ownerId=data['ownerId'],
                                 )
         db.session.add(new_persona)
@@ -40,29 +41,31 @@ def edit(characterId):
     data = request.json
     old_persona = Character.query.get(characterId)
     if 'name' in data:
-        old_persona.title = data['name']
+        old_persona.name = data['name']
     if 'strength' in data:
-        old_persona.title = data['strength']
+        old_persona.strength = data['strength']
     if 'dexterity' in data:
-        old_persona.title = data['dexterity']
+        old_persona.dexterity = data['dexterity']
     if 'constitution' in data:
-        old_persona.title = data['constitution']
+        old_persona.constitution = data['constitution']
     if 'intelligence' in data:
-        old_persona.title = data['intelligence']
+        old_persona.intelligence = data['intelligence']
     if 'wisdom' in data:
-        old_persona.title = data['wisdom']
+        old_persona.wisdom = data['wisdom']
     if 'charisma' in data:
-        old_persona.title = data['charisma']
+        old_persona.charisma = data['charisma']
     if 'armor_class' in data:
-        old_persona.title = data['armor_class']
+        old_persona.armor_class = data['armor_class']
     if 'max_hitpoints' in data:
-        old_persona.title = data['max_hitpoints']
+        old_persona.max_hitpoints = data['max_hitpoints']
     if 'features' in data:
-        old_persona.title = data['features']
+        old_persona.features = data['features']
     if 'actions' in data:
-        old_persona.title = data['actions']
+        old_persona.actions = data['actions']
+    if 'images' in data:
+        old_persona.image
     if 'ownerId' in data:
-        old_persona.title = data['ownerId']
+        old_persona.ownerId = data['ownerId']
     db.session.commit()
     return old_persona.to_dict()
 

@@ -59,6 +59,7 @@ class Character(db.Model):
   max_hitpoints = db.Column(db.Integer, nullable=False)
   features = db.Column(db.String)
   actions = db.Column(db.String)
+  image = db.Column(db.String)
   ownerId = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
   page = db.relationship(
         "Page",

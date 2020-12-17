@@ -20,7 +20,7 @@ function CharacterView({ history }) {
                 <>
                     <h1 className={styles.adventures_label}>{selectedCharacter.name}</h1>
                     <hr></hr>
-                    <img src="https://cdn.pixabay.com/photo/2020/07/10/00/26/man-5389055_960_720.png"></img>
+                    <img className={styles.view_image} src="https://cdn.pixabay.com/photo/2020/07/10/00/26/man-5389055_960_720.png"></img>
                     <div className={styles.tile_stack}>
                         <StatTile statName="Strength" statValue={selectedCharacter.strength} />
                         <StatTile statName="Dexterity" statValue={selectedCharacter.dexterity} />
